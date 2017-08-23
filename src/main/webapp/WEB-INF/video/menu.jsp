@@ -36,7 +36,7 @@
    <ul class="nav navbar-nav">
             <li  ><a href="" > <b style="font-size: larger;">视频管理系统</b></a></li>
             <li ><a href='<c:url value="/vedio/videoList.action"></c:url>' target="pageBox">视频管理</a></li>
-            <li><a href="speakerList.html" target="pageBox">主讲人管理</a></li>
+            <li><a href='<c:url value="/vedio/speakerList.action"></c:url>' target="pageBox">主讲人管理</a></li>
             <li class="active"><a href="curriculumList .html" target="pageBox">课程管理</a></li>
             <li><a href="#" >统计分析</a></li>
      </ul>

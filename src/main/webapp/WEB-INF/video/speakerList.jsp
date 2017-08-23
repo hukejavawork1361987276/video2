@@ -48,16 +48,10 @@
   		
  <button type="button" class="btn btn-primary">添加主讲人</button>
 
-
-
-
-
 <div class="search">
 
 <b>名称:</b><input type="text" class="form-control" id="exampleInputName2" placeholder="主讲人姓名" style="width: 200px; display: inline;">
 <b>职位:</b><input type="text" class="form-control" id="exampleInputName2" placeholder="主讲人职位" style="width: 200px; display: inline;">
-
-
  <button type="button" class="btn btn-primary">搜索</button>
 </div>
   </div>	
@@ -81,15 +75,18 @@
   </tr>	
   </thead>
   <tbody>
+  <c:forEach items="${speakers}" var="speakers" varStatus="inco">
 <tr>
 	
-	<td>1</td>
-	<td>白净</td>
-	<td>高数讲师</td>
-	<td>数学拉格朗日定力</td>
+	<td>${inco.count}</td>
+	<td>${speakers.speaker_name}</td>
+	<td>${speakers.speaker_job}</td>
+	<td>${speakers.speaker_descr}</td>
 	<td><a href="editSpeaker.html"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
 	<td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
-</tr></tbody>
+</tr>
+</c:forEach>
+</tbody>
 		</table>
 		
 		<nav aria-label="Page navigation">
