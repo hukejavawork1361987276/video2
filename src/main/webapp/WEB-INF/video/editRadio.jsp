@@ -39,28 +39,36 @@
 <form action='<c:url value="/vedio/addVideo.action"></c:url>'enctype="multipart/form-data" method="post">
 <b style="font-size:large;float: left;">视频标题:</b><input type="text" name="video_title" class="form-control" id="exampleInputEmail1" placeholder="视频标题" style="width: 1000px;display: inline;float: right;"><br /><br />
 
-<b style="font-size:large;float: left;">主讲人:</b>
+
 
 <div class="form-group" > 
-<select class="form-control" name="speaker_id" >
+
+<div style="float: left;">
+<b style="font-size:large;float: left;">主讲人:</b>
+</div>
+<div style="float: right;">
+<select class="form-control" name="speaker_id" style="width: 1000px;height: 35px;">
 	<option value="">请输入主讲人</option>
    <c:forEach items="${allSpeaker}" var="allSpeaker" varStatus="inco">
    <option value="${allSpeaker.id}" >${allSpeaker.speaker_name}</option>
    </c:forEach>
- </select>
+ </select></div>
 </div>
 <br /><br />
 
-<b style="font-size:large;float: left;">所属课程:</b>
+
 
 
 <div class="form-group" > 
-<select class="form-control" name="course_id" >
+<div style="float: left;">
+<b style="font-size:large;float: left;">所属课程:</b></div>
+<div style="float: right;">
+<select class="form-control" name="course_id" style="width: 1000px;height: 35px;">
 	<option value="">请输入课程</option>
    <c:forEach items="${allCourse}" var="allCourse" varStatus="inco">
    <option value="${allCourse.id}" >${allCourse.course_name}</option>
    </c:forEach>
- </select>
+ </select></div>
 </div>
 <br /><br />
 
