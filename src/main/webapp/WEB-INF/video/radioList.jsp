@@ -101,22 +101,14 @@ style="font-size: x-small;">
 <!--  -->
 
 
-<div class="pull-right" >
+<div style="float: right;" >
+	
 <form action='<c:url value="/vedio/videoList.action"></c:url>' >
-<div class="form-group">
-<input type="text" name="titlelike" class="form-control" id="exampleInputName2" placeholder="请输入视频标题" style="width: 200px; ">
-</div>
-
-<div class="form-group" > 
-<select class="form-control" name="speakid" >
-	<option value="">请输入主讲人</option>
-   <c:forEach items="${allSpeaker}" var="allSpeaker" varStatus="inco">
-   <option value="${allSpeaker.id}" >${allSpeaker.speaker_name}</option>
-   </c:forEach>
- </select>
-</div>
-
-<div class="form-group" > 
+	<div class="form-group" style="float: right;">
+ <button type="submit" class="btn btn-primary">搜索</button>
+ </div>
+	
+<div class="form-group" style="float: right;"> 
 <select class="form-control" name="courseid" >
 	<option value="">请输入课程</option>
    <c:forEach items="${allCourse}" var="allCourse" varStatus="inco">
@@ -124,9 +116,20 @@ style="font-size: x-small;">
    </c:forEach>
  </select>
 </div>
-<div class="form-group">
- <button type="submit" class="btn btn-primary">搜索</button>
- </div>
+	
+<div class="form-group" style="float: right;"> 
+<select class="form-control" name="speakid"  >
+	<option value="">请输入主讲人</option>
+   <c:forEach items="${allSpeaker}" var="allSpeaker" varStatus="inco">
+   <option value="${allSpeaker.id}" >${allSpeaker.speaker_name}</option>
+   </c:forEach>
+ </select>
+</div>	
+	
+<div class="form-group"  style="float: right;" >
+<input type="text" name="titlelike" class="form-control" id="exampleInputName2" placeholder="请输入视频标题" style="width: 200px;float: right; ">
+</div>
+
  </form>
 </div>
   	</div>	
