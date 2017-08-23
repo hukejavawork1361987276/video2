@@ -33,7 +33,11 @@ public class VideoListImpl implements VideoService{
 	}
 	@Override
 	public int deleVideo(Integer[] deleVideo) {
+		
+		System.out.println("deleV----------------ideo"+deleVideo);
+		if(deleVideo!=null){
 		vm.deleVideo(deleVideo);
+		}
 		return 0;
 	}
 	@Override

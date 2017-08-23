@@ -53,6 +53,15 @@
 		arr[i].checked = !arr[i].checked;
 		}
 		}
+	 
+	 
+	 function convertCount(){
+		 
+	 }
+	 
+ 		function Count(){
+		 
+	 }
    
    </script>
   </head>
@@ -159,7 +168,7 @@ style="font-size: x-small;">
   <form  id="dele" action='<c:url value="/vedio/deleVideo.action"></c:url>' method="post">
   <c:forEach items="${ page.rows }" var="videoList" varStatus="inco">
 <tr>
-	 <th width="5px" ><input name="deleVideo" value="${videoList.id}" type="checkbox" /></th>
+	 <th width="5px" ><input name="deleVideo" value="${videoList.id}" type="checkbox"  onclick="Count()"/></th>
 	<td>${inco.count}</td>
 	 <td>${videoList.video_title}</td>
 	<td>${videoList.video_descr}</td>
