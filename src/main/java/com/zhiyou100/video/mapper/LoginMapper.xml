@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyou100.video.mapper.LoginMapper">
+<select id="selectuser" parameterType="java.util.HashMap" resultType="Integer">
+select count(1) from admin where login_name=#{name}  and login_pwd=#{password};
+</select>
+
+</mapper>

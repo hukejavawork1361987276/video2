@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyou100.video.mapper.VideoMapper">
+
+ <resultMap type="Video" id="video">
+ <id column="id" property="id"/>
+  <!-- <result column="id" property="id"/> -->
+ <result column="video_title" property="video_title"/>
+ <result column="video_descr" property="video_descr"/>
+ <result column="video_length" property="video_length"/>
+ <result column="video_play_times" property="video_play_times"/>
+
+<!-- <association property="course" javaType="Course">
+<result column="course_name" property="courseName"/>
+</association>
+
+<association property="speaker" javaType="Speaker">
+<result column="speaker_name" property="speakerName"/>
+</association> -->
+
+</resultMap> 
+ 
+<!-- 
+<select id="findVideoList"  resultMap="video"> 
+
+Select vo.id, vo.video_title,vo.video_descr, cs.course_name,
+		sp.speaker_name ,vo.video_length ,vo.video_play_times 
+     from speaker  sp,   course  cs,   video vo   
+     where vo.speaker_id=sp.id    and vo.course_id=cs.id  ;
+</select> -->
+
+<delete id="deleVideo" parameterType="java.util.List">
+    DELETE FROM video WHERE id IN
+    <foreach  collection="array" index="index" item="item" open="(" separator="," close=")"> 
+        #{item} 
+    </foreach>
+</delete>
+
+
+<select id="speakerList" resultType="speaker">
+ 	select*from speaker;
+</select>
+
+<select id="findCourse" resultType="Course">
+ 	select*from Course;
+</select>
+
+<select id="findVCount" parameterType="java.util.HashMap" resultType="Integer">
+
+ select count(1)
+  	from video v
+  	left join speaker s on v.speaker_id = s.id
+  	left join course c on v.course_id = c.id 
+  	where 1=1
+  	<if test="speakid !=null and speakid!=''">
+  	and  v.speaker_id=#{speakid}
+  	</if>
+  	<if test="courseid !=null and courseid !=''">
+  	and  v.course_id =#{courseid}
+  	</if>
+  	<if test="titlelike !=null and titlelike !=''">
+  	and v.video_title like '%'#{titlelike}'%';
+  	</if>
+  </select> 
+  
+   <select id="findV" parameterType="java.util.HashMap" resultMap="video">
+ select v.*,s.speaker_name speakerName,c.course_name courseName
+  	from video v
+  	left join speaker s on v.speaker_id = s.id
+  	left join course c on v.course_id = c.id
+  	where 1=1
+  <if test="speakid !=null and speakid!=''">
+  	and  v.speaker_id=#{speakid}
+  	</if>
+  	<if test="courseid !=null and courseid !=''">
+  	and  v.course_id =#{courseid}
+  	</if>
+  	<if test="titlelike !=null and titlelike !=''">
+  	and v.video_title like '%'#{titlelike}'%'
+  	</if>
+  	  
+  	limit #{currentPage},10;
+  </select>
+  
+  <insert id="addVideo" parameterType="video" >
+  insert into video (video_title,speaker_id, course_id,video_length,video_url,video_descr,video_play_times,insert_time,update_time,video_image_url )
+  values(#{video_title},#{speaker_id},#{course_id},#{video_length},#{video_url},
+  #{video_descr},#{video_play_times},#{insert_time},#{update_time},#{video_image_url});
+  </insert>
+  
+  <select id="findOneVideo" parameterType="Integer" resultType="video">
+ 	select*from video where id=#{id};
+</select>
+  
+  <update id="updateOneVideo" parameterType="video" >
+  update video set video_title=#{video_title},speaker_id=#{speaker_id}, course_id=#{course_id},video_length=#{video_length},video_url=#{video_url}
+  ,video_descr=#{video_descr},video_play_times=#{video_play_times},update_time=#{update_time},video_image_url=#{video_image_url} where id=#{id}; 
+  </update>
+  
+  <delete id="deleOneVideo" parameterType="Integer">
+    DELETE FROM video WHERE id =#{id}
+    
+</delete>
+</mapper>
