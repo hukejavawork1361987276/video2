@@ -37,12 +37,20 @@
    </style>
    
    <script type="text/javascript">
-   var count=0;
+  
    
    
 	function	Counts(th){
-			count=count+1;
-			$("span[name='xs']").text(count);} 	
+		var count1=0;
+		//找到所有tr中的checkbox,让其checked的属性改为他的相反
+		$("input[name='deleVideo']").each(function(index,domElement){
+			
+			if (domElement.checked) {
+				count1=count1+1;
+				$("span[name='xs']").text(count1);
+			}
+		 });
+			} 	
 	
 	
 	 
