@@ -37,32 +37,37 @@
    </style>
    
    <script type="text/javascript">
- /*   function selectAll(theCheck) {
-	 //找到全选的checkbox,获取checked属性
-	 //找到所有tr中的checkbox,让其checked的属性为全选的checked属性
-	 var arr = document.getElementsByName("deleVideo");
-	 for(var i = 0; i < arr.length; i++){
-	 arr[i].checked = theCheck.checked;
-	 }
-	 } */
+   var count=0;
+   
+   
+	function	Counts(th){
+			count=count+1;
+			$("span[name='xs']").text(count);} 	
+	
+	
 	 
-	 function convert(){
+	 /* function convert(){
 		//找到所有tr中的checkbox,让其checked的属性改为他的相反
 		var arr = document.getElementsByName("deleVideo");
 		for(var i = 0; i < arr.length; i++){
 		arr[i].checked = !arr[i].checked;
 		}
-		}
-	 
-	 
-	 function convertCount(){
-		 
-	 }
-	 
- 		function Count(){
-		 
-	 }
-   
+		}  */
+		
+		
+		function convert(){
+			var count1=0;
+		//找到所有tr中的checkbox,让其checked的属性改为他的相反
+		$("input[name='deleVideo']").each(function(index,domElement){
+			domElement.checked = !domElement.checked;
+			if (domElement.checked) {
+				count1=count1+1;
+				$("span[name='xs']").text(count1);
+			}
+		 });
+	
+		}  
+		
    </script>
   </head>
   	<body>
@@ -85,7 +90,8 @@
 </button> -->
 <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" 
 style="font-size: x-small;">
- 批量删除<span class="badge">?</span>
+
+ 批量删除<span class="badge" name="xs">?</span>
 </button>
 
 <!-- Modal -->
@@ -168,7 +174,7 @@ style="font-size: x-small;">
   <form  id="dele" action='<c:url value="/vedio/deleVideo.action"></c:url>' method="post">
   <c:forEach items="${ page.rows }" var="videoList" varStatus="inco">
 <tr>
-	 <th width="5px" ><input name="deleVideo" value="${videoList.id}" type="checkbox"  onclick="Count()"/></th>
+	 <th  width="5px" ><input name="deleVideo" value="${videoList.id}" type="checkbox"  onclick="Counts(this)"/></th>
 	<td>${inco.count+10*(page.page-1)}</td>
 	 <td>${videoList.video_title}</td>
 	<td>${videoList.video_descr}</td>

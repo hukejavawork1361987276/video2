@@ -25,10 +25,15 @@
    	padding-top: 10px;
    }
    </style>
+   <script type="text/javascript" ></script>
+   
+   
    
   </head>
+  
+  
   	<body>
-  					<div class="jumbotron">
+  <div class="jumbotron">
   <div class="container">
     <h2><b>添加课程</b></h2>
   </div>
