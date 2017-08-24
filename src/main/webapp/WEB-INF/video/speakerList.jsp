@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
                  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+                 
+   <%@taglib prefix="fy" uri="http://zhiyou100.com/commonSpeaker/"%>   
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -10,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>Hello World</title>
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <script src="../js/jquery-1.12.4.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+   <link href='<c:url value="/css/bootstrap.min.css"></c:url>' rel="stylesheet">
+    <script src='<c:url value="/js/jquery-1.12.4.min.js"></c:url>'></script>
+    <script src='<c:url value="/js/bootstrap.min.js"></c:url>'></script>
    
    <style>
    	   	body{ 
@@ -46,13 +47,14 @@
 
 <div>
   		
- <button type="button" class="btn btn-primary">添加主讲人</button>
+ <a href='<c:url value="/vedio/addSpeakerYM.action"></c:url>'><button type="button" class="btn btn-primary">添加主讲人</button></a>
 
 <div class="search">
-
-<b>名称:</b><input type="text" class="form-control" id="exampleInputName2" placeholder="主讲人姓名" style="width: 200px; display: inline;">
-<b>职位:</b><input type="text" class="form-control" id="exampleInputName2" placeholder="主讲人职位" style="width: 200px; display: inline;">
- <button type="button" class="btn btn-primary">搜索</button>
+<form action='<c:url value="/vedio/speakerList.action"></c:url>'>
+<b>名字:</b><input type="text" value="${speaker_name}" name="speaker_name" class="form-control" id="exampleInputName2" placeholder="主讲人姓名" style="width: 200px; display: inline;">
+<b>职位:</b><input type="text" value="${speaker_job}" name="speaker_job" class="form-control" id="exampleInputName2" placeholder="主讲人职位" style="width: 200px; display: inline;">
+ <button type="submit" class="btn btn-primary">搜索</button>
+ </form>
 </div>
   </div>	
   	<br />
@@ -75,40 +77,23 @@
   </tr>	
   </thead>
   <tbody>
-  <c:forEach items="${speakers}" var="speakers" varStatus="inco">
+  <c:forEach items="${page.rows}" var="speakers" varStatus="inco">
 <tr>
 	
-	<td>${inco.count}</td>
+	<td>${inco.count+10*(page.page-1)}</td>
 	<td>${speakers.speaker_name}</td>
 	<td>${speakers.speaker_job}</td>
 	<td>${speakers.speaker_descr}</td>
-	<td><a href="editSpeaker.html"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
+	<td><a href='<c:url value="/vedio/editSpeaker.action"></c:url>?id=${speakers.id}'><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></td>
 	<td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
 </tr>
 </c:forEach>
 </tbody>
 		</table>
 		
-		<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-  		
+
+
+ <fy:page url="${pageContext.request.contextPath}/vedio/speakerList.action"></fy:page>	
 	</body>
 </html>
 

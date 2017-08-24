@@ -50,7 +50,7 @@ public class VideoManager {
 		int currentPage=(page==null?1:Integer.parseInt(page));
 	
 		Page page1=vs.loadPage(titlelike,speakid,courseid,currentPage);
-		System.out.println(page1);
+		
 	
 		mm.addAttribute("page",page1);
 	

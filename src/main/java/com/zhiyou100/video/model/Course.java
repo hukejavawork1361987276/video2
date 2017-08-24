@@ -10,6 +10,15 @@ public class Course {
 	 private	 String course_descr;
 	 private	 Date insert_time;
 	 private	 Date  update_time;
+	 private   String subject_name;
+	 
+	 
+	public String getSubject_name() {
+		return subject_name;
+	}
+	public void setSubject_name(String subject_name) {
+		this.subject_name = subject_name;
+	}
 	public int getId() {
 		return id;
 	}
@@ -46,11 +55,7 @@ public class Course {
 	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
 	}
-	@Override
-	public String toString() {
-		return "Course [id=" + id + ", subject_id=" + subject_id + ", course_name=" + course_name + ", course_descr="
-				+ course_descr + ", insert_time=" + insert_time + ", update_time=" + update_time + "]";
-	}
+	
 	 
 	 
 }

@@ -121,7 +121,7 @@ style="font-size: x-small;">
 <select class="form-control" name="courseid" >
 	<option value="">请输入课程</option>
    <c:forEach items="${allCourse}" var="allCourse" varStatus="inco">
-   <option value="${allCourse.id}" >${allCourse.course_name}</option>
+   <option value="${allCourse.id}"   ${allCourse.id  eq courseid?"selected":""}>${allCourse.course_name}</option>
    </c:forEach>
  </select>
 </div>
@@ -133,13 +133,13 @@ style="font-size: x-small;">
 <select class="form-control" name="speakid"  >
 	<option value="">请输入主讲人</option>
    <c:forEach items="${allSpeaker}" var="allSpeaker" varStatus="inco">
-   <option value="${allSpeaker.id}" >${allSpeaker.speaker_name}</option>
+   <option value="${allSpeaker.id}" ${allSpeaker.id  eq speakid?"selected":""}>${allSpeaker.speaker_name}</option>
    </c:forEach>
  </select>
 </div>	
 	
 <div class="form-group"  style="float: right;" >
-<input type="text" name="titlelike" class="form-control" id="exampleInputName2" placeholder="请输入视频标题" style="width: 200px;float: right; ">
+<input type="text" value="${titlelike}" name="titlelike" class="form-control" id="exampleInputName2" placeholder="请输入视频标题" style="width: 200px;float: right; ">
 </div>
 
  </form>
@@ -169,7 +169,7 @@ style="font-size: x-small;">
   <c:forEach items="${ page.rows }" var="videoList" varStatus="inco">
 <tr>
 	 <th width="5px" ><input name="deleVideo" value="${videoList.id}" type="checkbox"  onclick="Count()"/></th>
-	<td>${inco.count}</td>
+	<td>${inco.count+10*(page.page-1)}</td>
 	 <td>${videoList.video_title}</td>
 	<td>${videoList.video_descr}</td>
 	<td>${videoList.speakerName}</td>

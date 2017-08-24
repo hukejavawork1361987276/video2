@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+     <%@taglib prefix="fy" uri="http://zhiyou100.com/common/"%> 
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -49,37 +50,23 @@
   </tr>	
   </thead>
   <tbody>
+
+  <c:forEach items="${page.rows}" var="courseList" varStatus="inco">
 <tr>
-	<td>1</td>
-	<td>数学</td>
-	<td>高数</td>
-	<td>大学的数学粉条感觉更返回空发VB发女版vmcvnlzkxvn bn,mcvxz淡饭黄齑对方科目的承诺方给每个参VC女项目上线 女性吗</td>
+	<td>${inco.count+10*(page.page-1)}</td>
+	<td>${courseList.course_name}</td>
+	<td>${courseList.subject_name}</td>
+	<td>${courseList.course_descr}</td>
 	<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></td>
 	<td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
 </tr>
+</c:forEach>
 </tbody>
 		</table>
   		
   		
-  		<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+
   	</div>
+  	<fy:page url="${pageContext.request.contextPath}/vedio/videoList.action"></fy:page>
 	</body>
 </html>

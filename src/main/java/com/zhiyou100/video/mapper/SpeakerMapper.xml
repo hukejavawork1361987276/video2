@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
 <mapper namespace="com.zhiyou100.video.mapper.SpeakerMapper">
-<select id="findAllSpesker"  resultType="speaker">
-select *from Speaker; 
+
+<select id="findSCount"  resultType="Integer" parameterType="java.util.HashMap">
+select count(1) from Speaker where 1=1
+<if test="speaker_name !=null and speaker_name !=''">
+  	and  speaker_name like '%${speaker_name}%'
+  	</if>
+  	<if test="speaker_job !=null and speaker_job !=''">
+  	and  speaker_job like '%${speaker_job}%';
+  	</if>
+</select>  
+
+                           
+                            
+ <select id="findS"  resultType="speaker" parameterType="java.util.HashMap">
+select * from Speaker where 1=1
+<if test="speaker_name !=null and speaker_name !=''">
+  	and  speaker_name like '%${speaker_name}%'
+  	</if>
+  	<if test="speaker_job !=null and speaker_job !=''">
+  	and  speaker_job like '%${speaker_job}%'
+  	</if>
+  	limit #{currentPage},10;
 </select>
 
+<insert id="addOneSpeaker" parameterType="speaker"> 
+	
+insert into speaker(speaker_name,speaker_job,speaker_head_url,speaker_descr)values (#{speaker_name},#{speaker_job},#{speaker_head_url},#{speaker_descr})
+</insert>
+<select id="editSpeaker" parameterType="Integer" resultType="speaker"> 
+	
+select * from Speaker where id=#{id}</select>
 </mapper>
