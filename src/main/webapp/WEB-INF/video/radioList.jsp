@@ -42,6 +42,7 @@
    
 	function	Counts(th){
 		var count1=0;
+		$("span[name='xs']").text(count1);
 		//找到所有tr中的checkbox,让其checked的属性改为他的相反
 		$("input[name='deleVideo']").each(function(index,domElement){
 			
@@ -49,6 +50,8 @@
 				count1=count1+1;
 				$("span[name='xs']").text(count1);
 			}
+			
+			
 		 });
 			} 	
 	
@@ -65,6 +68,7 @@
 		
 		function convert(){
 			var count1=0;
+			$("span[name='xs']").text(0);
 		//找到所有tr中的checkbox,让其checked的属性改为他的相反
 		$("input[name='deleVideo']").each(function(index,domElement){
 			domElement.checked = !domElement.checked;
