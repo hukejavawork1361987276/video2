@@ -53,7 +53,7 @@
             <li onclick="zhong(this)"><a  href='<c:url value="/vedio/videoList.action"></c:url>' target="pageBox">视频管理</a></li>
             <li onclick="zhong(this)"><a  href='<c:url value="/vedio/speakerList.action"></c:url>' target="pageBox">主讲人管理</a></li>
             <li onclick="zhong(this)"><a  href='<c:url value="/vedio/courseList.action"></c:url>' target="pageBox">课程管理</a></li>
-            <li onclick="zhong(this)"><a  href="#" >统计分析</a></li>
+            <li onclick="zhong(this)"><a  href='<c:url value="/vedio/tongji.action"></c:url>'>统计分析</a></li>
      </ul>
      
      <div style="float: right;">

@@ -234,5 +234,7 @@ style="font-size: x-small;">
   		
   		
 <fy:page url="${pageContext.request.contextPath}/vedio/videoList.action"></fy:page>
+
+
 	</body>
 </html>

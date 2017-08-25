@@ -63,10 +63,13 @@
 </c:forEach>
 </tbody>
 		</table>
+		<fy:page url="${pageContext.request.contextPath}/vedio/videoList.action"></fy:page>
+  
+  	
   		
   		
 
   	</div>
-  	<fy:page url="${pageContext.request.contextPath}/vedio/videoList.action"></fy:page>
+  	
 	</body>
 </html>

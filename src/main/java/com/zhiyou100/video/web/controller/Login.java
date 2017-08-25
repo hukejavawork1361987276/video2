@@ -40,7 +40,7 @@ public class Login {
 			//采用Base64编码表示
 			BASE64Encoder encoder = new BASE64Encoder();
 			 String encode = encoder.encode(bts);
-		 
+		 System.out.println(encode);
 		 
 		 
 		 

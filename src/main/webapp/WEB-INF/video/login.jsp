@@ -12,6 +12,9 @@
     <link href='<c:url value="/css/bootstrap.min.css"></c:url>' rel="stylesheet">
     <script src='<c:url value="/js/jquery-1.12.4.min.js"></c:url>'></script>
     <script src='<c:url value="/js/bootstrap.min.js"></c:url>'></script>
+    
+    <script src='<c:url value="js/jquery.validate.min.js"></c:url>'></script>
+    <script src='<c:url value="/js/messages_zh.min.js"></c:url>'></script>
    
    <style>
    	body{ text-align:center} 
@@ -27,11 +30,43 @@
    		padding-top: 300px;
    	}
    </style>
+  
+
+   <script type="text/javascript">
+   $(function () {
+
+   	$("#form1").validate({
+   		rules:{
+   			name:{
+   				required:true
+   			},
+   			password:{
+   				required:true
+   			}
+   			
+   		},
+   		messages:{
+   		name:{	required:"用户名不能为空"		
+   				},
+   			
+   		password:{	required:"密码不能为空"
+   				
+   				}
+   		}/* ,
+   		errorPlacement: function(error, element) { //错误信息位置设置方法
+   			error.appendTo( element.parent().next() ); //这里的element是录入数据的对象
+   			} */
+   	});
+   	
+   });
+
+   
+   </script>
   </head>
   <body>
    
  <div class="geshi">
-     <form class="form-inline" action='<c:url value="/login.action"></c:url>'>	
+     <form id="form1" class="form-inline" action='<c:url value="/login.action"></c:url>'>	
   	<div class="form-group" >  
   		<img alt=""src='<c:url value="/img/logo.png"></c:url>'/><br />
   		<input type="text" class="form-control" id="exampleInputEmail3" placeholder="用户名" size="36"  name="name">
