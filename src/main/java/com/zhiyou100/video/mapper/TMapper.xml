@@ -5,4 +5,5 @@
 select c.course_name courseName ,avg(v.video_play_times) video_play_times from video v right join course c on v.course_id=c.id group by c.course_name ;
 </select>
 
+
 </mapper>
