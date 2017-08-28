@@ -129,10 +129,8 @@
             </form>
         </div>
     </div>
-<jsp:include page="/WEB-INF/video/front/include/footer.jsp">
-<jsp:param value="video" name="fromJsp"/>
-   </jsp:include> 
- <%@include file="/WEB-INF/video/front/include/footer.jsp"%>
+
+ <%@include file="./include/footer.jsp"%>
 
     <%@include file="./include/script.html"%>
 

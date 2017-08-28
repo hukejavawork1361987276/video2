@@ -39,7 +39,7 @@
 <div class="mask hidden" id="loginDiv">
 	<div class="mask_content">
 		<div class="mask_content_header">
-			<img src="static/img/logo.png" alt="" class="ma">
+			<img src="/img/logo.png" alt="" class="ma">
 		</div>
 		<div class="mask_content_body">
 			<form id="loginForm" action="front/user/login.do" method="post">
@@ -60,7 +60,7 @@
 <div class="mask hidden" id="regDiv">
 	<div class="mask_content">
 		<div class="mask_content_header">
-			<img src="static/img/logo.png" alt="" class="ma">
+			<img src="/img/logo.png" alt="" class="ma">
 		</div>
 		<div class="mask_content_body">
 			<form id="regForm" action="front/user/regist.do" method="post">

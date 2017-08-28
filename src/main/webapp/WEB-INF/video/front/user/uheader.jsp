@@ -9,7 +9,7 @@
 
 <header>
 	<div class="container top_bar clearfix">
-		<img src="static/img/logo.png" alt="智游">
+		<img src="img/logo.png" alt="智游">
 		<div id="tele">
 			<span>4006-371-555</span>
 			<span>0371-88888598</span>
@@ -24,7 +24,7 @@
 			<div id="user_bar">
 				<a href="front/user/index.action">
 					<c:if test="${empty sessionScope._front_user.headUrl}">
-						<img id="avatar" src="static/img/avatar_lg.png" alt="">
+						<img id="avatar" src="img/avatar_lg.png" alt="">
 					</c:if>
 
 					<c:if test="${not empty sessionScope._front_user.headUrl}">
