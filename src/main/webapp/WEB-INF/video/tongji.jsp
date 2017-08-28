@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <jsp:include page="/WEB-INF/video/menu.jsp">
+   <jsp:param value="statistics" name="fromJsp"/></jsp:include>
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -77,7 +79,7 @@
                     xAxis : [
                         {
                             type : 'category',
-                            data : ["Python编程零基础入门 ","UI基础入门","前端开发与Git入门","每天20分钟轻松入门React","轻松进击PHP基础 "]
+                            data : ["Python编程零基础入门","UI基础入门","前端开发与Git入门","每天20分钟轻松入门React"]
                         }
                     ],
                     yAxis : [
@@ -89,7 +91,9 @@
                         {
                             "name":"销量",
                             "type":"bar",
-                            "data":[5, 20, 40, 10, 10, 20,40]
+                            
+                            "data":
+                            	[${zhi0},${zhi1},${zhi2},${zhi3},${zhi4}]
                         }
                     ]
                 };
@@ -100,7 +104,7 @@
         );
     </script>
   <!--  -->
-
+${zhi5}dfhfj
 <!--  -->
 
   </body>

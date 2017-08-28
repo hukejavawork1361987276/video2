@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
              <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
    <%@taglib prefix="fy" uri="http://zhiyou100.com/common/"%> 
+   <jsp:include page="/WEB-INF/video/menu.jsp">
+   <jsp:param value="video" name="fromJsp"/>
+   </jsp:include>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -43,7 +46,7 @@
 	function	Counts(th){
 		var count1=0;
 		$("span[name='xs']").text(count1);
-		//找到所有tr中的checkbox,让其checked的属性改为他的相反
+		
 		$("input[name='deleVideo']").each(function(index,domElement){
 			
 			if (domElement.checked) {
@@ -53,6 +56,15 @@
 			
 			
 		 });
+		if (count1==${page.size}) {
+			$("input[name='all']").prop("checked",true);
+
+	
+		}else{
+			$("input[name='all']").prop("checked",false);
+			
+		}
+		
 			} 	
 	
 	
@@ -170,7 +182,7 @@ style="font-size: x-small;">
   	<table class="table">
   		<thead>
   <tr>
-  	<th width="5px" ><input type="checkbox" onclick="convert()" /></th>
+  	<th width="5px" ><input type="checkbox" onclick="convert()" name="all"/></th>
   	<th width="5px" >序号</th>
   	<th>名称</th>
   	<th>介绍</th>

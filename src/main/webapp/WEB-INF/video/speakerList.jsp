@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
                  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-                 
+  <jsp:include page="/WEB-INF/video/menu.jsp">
+   <jsp:param value="speaker" name="fromJsp"/>  </jsp:include>              
    <%@taglib prefix="fy" uri="http://zhiyou100.com/commonSpeaker/"%>   
 <!DOCTYPE html>
 <html lang="zh-CN">

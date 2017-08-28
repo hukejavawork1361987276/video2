@@ -25,7 +25,15 @@ public class tongjiController {
 	@RequestMapping("/vedio/tongji.action")
 	public String loginYmController(ModelMap mm){
 	List<Video> v=	ts.findbiao();
-	System.out.println(v);
+	for (int i = 0; i < v.size(); i++) {
+		
+		mm.addAttribute("zhiname"+i, v.get(i).getCourseName());
+		System.out.println("zhiname"+i+"-------"+v.get(i).getCourseName());
+		mm.addAttribute("zhi"+i, v.get(i).getVideo_play_times());
+		System.out.println("zhi"+i+"--------"+v.get(i).getVideo_play_times());
+		
+	}
+	
 	mm.addAttribute("zhi", v);
 		return "/tongji"; 
 		

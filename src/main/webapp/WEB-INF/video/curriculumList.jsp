@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
      <%@taglib prefix="fy" uri="http://zhiyou100.com/common/"%> 
+      <jsp:include page="/WEB-INF/video/menu.jsp">
+   <jsp:param value="course" name="fromJsp"/></jsp:include>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
