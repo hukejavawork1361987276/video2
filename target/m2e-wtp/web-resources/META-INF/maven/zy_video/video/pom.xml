@@ -164,6 +164,12 @@
 	</dependencyManagement>
 	<!-- 依赖管理 -->
 	 <dependencies>
+	 <!-- 发邮件 -->
+	 <dependency>
+	 <groupId>javax.mail</groupId>
+	 <artifactId>mail</artifactId>
+	 <version>1.4.7</version> 
+ </dependency>
 		<!-- 单元测试 -->
 			<dependency>
 				<groupId>junit</groupId>
