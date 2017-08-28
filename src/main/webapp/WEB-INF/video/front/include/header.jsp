@@ -15,14 +15,14 @@
 		</c:if>
 		<c:if test="${empty _front_user}">
 			<div id="regBlock" style="float:right">
-				<a href="javascript:;" id="reg_open"><img src="/img/we.png">注册</a>
-				<a href="javascript:;" id="login_open"><img src="/img/we.png">登录</a>
+				<a href="javascript:;" id="reg_open"><img src="../static/img/we.png">注册</a>
+				<a href="javascript:;" id="login_open"><img src="../static/img/we.png">登录</a>
 			</div>
 		</c:if>
 
-		<a onclick="JavaScript:addFavorite2()"><img src="/img/sc.png" draggable="false">加入收藏</a>
-		<a target="_blank" href="${pageContext.request.contextPath}/loginYm.action"><img src="/img/we.png" draggable="false">后台管理</a>
-		<a class="color_e4"><img src="/img/phone.png" draggable="false"> 0371-88888598&#x3000;&#x3000;4006-371-555</a>
+		<a onclick="JavaScript:addFavorite2()"><img src="static/img/sc.png" draggable="false">加入收藏</a>
+		<a target="_blank" href="admin/login.do"><img src="static/img/we.png" draggable="false">后台管理</a>
+		<a class="color_e4"><img src="static/img/phone.png" draggable="false"> 0371-88888598&#x3000;&#x3000;4006-371-555</a>
 
 	</div>
 </header>

@@ -23,7 +23,7 @@
 	<div id="app">
 		<!--banner图-->
 		<div class="banner"
-			style="background-image: url('/img/banner-${subjectId}.jpg')"></div>
+			style="background-image: url('static/img/banner-${subjectId}.jpg')"></div>
 
 		<!--面包屑导航-->
 		<div class="container mian-nav" id="navDiv">公开课 /${subject.subjectName }</div>
@@ -48,9 +48,9 @@
 								<p>${video.videoTitle }</p>
 								<div class="classify-v-info">
 									<span class="count" title="观看次数">
-									<img src="/img/count.png" alt="">${video.videoPlayTimes }</span>
+									<img src="static/img/count.png" alt="">${video.videoPlayTimes }</span>
 									<span class="duration" title="视频时长">
-										<img src="/img/player.png" alt="">${video.videoLengthStr }</span>
+										<img src="static/img/player.png" alt="">${video.videoLengthStr }</span>
 								</div>
 							</li>
 						</c:forEach>

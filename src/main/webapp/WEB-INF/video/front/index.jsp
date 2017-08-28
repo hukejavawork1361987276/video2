@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 
@@ -12,14 +11,11 @@
     <meta name="keywords" content="Web前端视频教程,大数据视频教程,HTML5视频教程,UI视频教程,PHP视频教程,java视频教程,python基础教程">
     <meta name="description" content="智游教育在线课程视频,为您提供java,python,HTML5,UI,PHP,大数据等学科经典视频教程在线浏览学习,精细化知识点解析,深入浅出,想学不会都难,智游教育,学习成就梦想！">
     <%@include file="./include/style.html"%>
-
     <title>在线公开课-智游教育|java|大数据|HTML5|python|UI|PHP视频教程</title>
 
 </head>
 
 <body class="w100">
-
-
     <jsp:include page="./include/header.jsp"></jsp:include>
 
     <!--banner图-->
@@ -34,29 +30,29 @@
                     <tr>
                         <td colspan="2">
                             <a href="front/course/index.do?subjectId=1">
-                                <img src="../img/html5.jpg" alt="gfjgh.khg" class="image scale" draggable="false">
+                                <img src="../static/img/html5.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>Web前端教程</span>
-                                    <img src="../img/arrow.png" alt="">
+                                    <img src="../static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
                         <td>
                             <!--上线时修改id-->
                             <a href="front/course/index.do?subjectId=6">
-                                <img src="${pageContext.request.contextPath}/img/ui.jpg" alt="" class="image scale" draggable="false">
+                                <img src="../static/img/ui.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>UI设计教程</span>
-                                    <img src="${pageContext.request.contextPath}/img/arrow.png" alt="">
+                                    <img src="../static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
                         <td rowspan="2" class="one_three">
                             <a href="#" class="opacity5">
-                                <img src="${pageContext.request.contextPath}/img/java.jpg" alt="" class="image" draggable="false">
+                                <img src="../static/img/java.jpg" alt="" class="image" draggable="false">
                                 <div class="headline">
                                     <span>Java教程</span>
-                                    <img src="${pageContext.request.contextPath}/img/arrow.png" alt="">
+                                    <img src="../static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
@@ -64,19 +60,19 @@
                     <tr>
                         <td>
                             <a href="#" class="opacity5">
-                                <img src="${pageContext.request.contextPath}/img/bigdata.jpg" alt="" class="image" draggable="false">
+                                <img src="static/img/bigdata.jpg" alt="" class="image" draggable="false">
                                 <div class="headline">
                                     <span>大数据教程</span>
-                                    <img src="${pageContext.request.contextPath}/img/arrow.png" alt="">
+                                    <img src="static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
                         <td colspan="2">
                             <a href="front/course/index.do?subjectId=10">
-                                <img src="${pageContext.request.contextPath}/img/python.jpg" alt="" class="image scale" draggable="false">
+                                <img src="static/img/python.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>Python教程</span>
-                                    <img src="${pageContext.request.contextPath}/img/arrow.png" alt="">
+                                    <img src="static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
@@ -84,15 +80,15 @@
                     <tr>
                         <td colspan="2">
                             <a href="front/course/index.do?subjectId=11">
-                                <img src="${pageContext.request.contextPath}/img/php.jpg" alt="" class="image scale" draggable="false">
+                                <img src="static/img/php.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>PHP教程</span>
-                                    <img src="${pageContext.request.contextPath}/img/arrow.png" alt="">
+                                    <img src="static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
                         <td colspan="2" class="three_two">
-                            <img src="${pageContext.request.contextPath}/img/qidai.jpg" alt="" class="image" draggable="false">
+                            <img src="static/img/qidai.jpg" alt="" class="image" draggable="false">
                             <div class="headline">
                                 更多课程，敬请期待...
                             </div>
@@ -130,7 +126,7 @@
         </div>
     </div>
 
- <%@include file="./include/footer.jsp"%>
+    <%@include file="include/footer.jsp"%>
 
     <%@include file="./include/script.html"%>
 

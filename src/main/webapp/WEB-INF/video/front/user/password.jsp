@@ -10,8 +10,8 @@
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="Web前端视频教程,大数据视频教程,HTML5视频教程,UI视频教程,PHP视频教程,java视频教程,python基础教程">
     <meta name="description" content="智游教育在线课程视频,为您提供java,python,HTML5,UI,PHP,大数据等学科经典视频教程在线浏览学习,精细化知识点解析,深入浅出,想学不会都难,智游教育,学习成就梦想！">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="static/css/base.css">
+    <link rel="stylesheet" href="static/css/profile.css">
     <title>在线公开课-智游教育|java|大数据|HTML5|python|UI|PHP视频教程</title>
 
 </head>
@@ -34,7 +34,7 @@
                         <div class="profile_avatar_area">
                         
                            <c:if test="${empty user.headUrl}">
-		                         <img id="avatar"  src="img/avatar_lg.png" alt="">
+		                         <img id="avatar"  src="static/img/avatar_lg.png" alt="">
 		                      </c:if>
 		                      
 		                      <c:if test="${not empty user.headUrl}">
