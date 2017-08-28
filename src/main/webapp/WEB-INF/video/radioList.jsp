@@ -16,7 +16,8 @@
     <link href='<c:url value="/css/bootstrap.min.css"></c:url>' rel="stylesheet">
     <script src='<c:url value="/js/jquery-1.12.4.min.js"></c:url>'></script>
     <script src='<c:url value="/js/bootstrap.min.js"></c:url>'></script>
-   
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery-confirm.css" />
+      <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-confirm.js" ></script>
    <style>
 
    	   	body{ 
@@ -40,7 +41,58 @@
    </style>
    
    <script type="text/javascript">
-  
+   function  deleOne(id){
+		$.confirm({
+		    title: '警告',
+		    content: '确认删除一个?',
+		    type: 'green',
+		    buttons: {   
+		        ok: {
+		            text: "确认",
+		            btnClass: 'btn-primary',
+		            action: function () {
+		           		$.ajax({
+		           			url:"${pageContext.request.contextPath}/vedio/deleOneVideo.action",
+		           			dataType:"text",
+		           			type:"post",
+		           			data:{"id":id},
+		           			success:function(msg){
+		           				if(msg=="success"){
+		           					location.reload();
+		           				}
+		           			}
+		           		});
+		        	}
+		        },
+		        cancel: function(){
+		        	 text: "取消" 
+		        }
+		    }
+		});
+   }
+
+	function  desubmit(){
+	//	document.getElementById('dele').submit();
+		$.confirm({
+		    title: '警告',
+		    content: '确认删除全部?',
+		    type: 'green',
+		    buttons: {   
+		        ok: {
+		            text: "确认",
+		            btnClass: 'btn-primary',
+		            action: function () {
+		            	document.getElementById('dele').submit();
+		        	}
+		        },
+		        cancel: function(){
+		        	 text: "取消"
+		        }
+		    }
+		});
+
+		
+	}
    
    
 	function	Counts(th){
@@ -112,13 +164,13 @@
 <!-- <button  class="btn btn-primary" type="button" onclick="document.getElementById('dele').submit();">
  批量删除<span class="badge">?</span>
 </button> -->
-<button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" 
+<button  type="button" onclick="desubmit()" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1" 
 style="font-size: x-small;">
 
  批量删除<span class="badge" name="xs">?</span>
 </button>
 
-<!-- Modal -->
+<!-- 
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -132,12 +184,15 @@ style="font-size: x-small;">
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
         <button type="button" class="btn btn-primary" onclick="document.getElementById('dele').submit();">是</button>
-      </div>
+  
+         <button type="button" class="btn btn-primary" onclick="desubmit()">是</button>
+ 
+     </div>
     </div>
   </div>
 </div>
-<!--  -->
-<!--  -->
+
+ -->
 
 
 <div style="float: right;" >
@@ -212,12 +267,12 @@ style="font-size: x-small;">
 	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 	</a> --%>
 	
-	 <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" >
+	 <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2"  onclick="deleOne(${videoList.id})">
 	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 	</a>
 	
 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<%-- <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -233,7 +288,7 @@ style="font-size: x-small;">
       </div>
     </div>
   </div>
-</div>
+</div> --%>
 	<!--  -->
 	</td>
 </tr>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.zhiyou100.video.model.Course;
@@ -105,9 +106,11 @@ public class VideoManager {
 	
 	
 	//deldeOne ”∆µ
-		@RequestMapping(value="/vedio/deleOneVideo.action")
+		@RequestMapping(value="/vedio/deleOneVideo.action",method=RequestMethod.POST)
+		@ResponseBody
 		public String deleOneVideo(Integer id){
+			System.out.println("dgfdj------------");
 			vs.deleOneVideo(id);
-			return "forward:/vedio/videoList.action";
+			return "success";
 		}
 }
