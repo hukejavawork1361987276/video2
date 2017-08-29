@@ -17,6 +17,11 @@
    
    <style>
    	
+   body{
+   	margin:0 auto;
+   	width: 1200px;
+   	
+   }
    	.context{
    		
    		margin: 0 auto;
@@ -52,7 +57,11 @@
     <!-- ECharts单文件引入 -->
     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
     <script type="text/javascript">
-        // 路径配置
+    $(function () {
+    	
+    var name="${name}".split(",");
+    var data="${data}".split(",");
+    	 // 路径配置
         require.config({
             paths: {
                 echarts: 'http://echarts.baidu.com/build/dist'
@@ -74,12 +83,12 @@
                         show: true
                     },
                     legend: {
-                        data:['销量']
+                        data:['课程的平均播放次数']
                     },
                     xAxis : [
                         {
                             type : 'category',
-                            data : ["Python编程零基础入门","UI基础入门","前端开发与Git入门","每天20分钟轻松入门React"]
+                            data : name
                         }
                     ],
                     yAxis : [
@@ -89,11 +98,11 @@
                     ],
                     series : [
                         {
-                            "name":"销量",
+                            "name":"课程的平均播放次数",
                             "type":"bar",
                             
                             "data":
-                            	[${zhi0},${zhi1},${zhi2},${zhi3},${zhi4}]
+                            	data
                         }
                     ]
                 };
@@ -102,10 +111,12 @@
                 myChart.setOption(option); 
             }
         );
+    	
+		
+	});
+       
     </script>
-  <!--  -->
-${zhi5}dfhfj
-<!--  -->
+
 
   </body>
 </html>

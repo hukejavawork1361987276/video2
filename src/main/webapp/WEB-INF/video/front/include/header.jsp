@@ -10,13 +10,13 @@
 		<c:if test="${not empty _front_user}">
 			<div id="userBlock" style="float:right">
 				<a href="front/user/logout.do">退出</a>
-				<a href="front/user/index.do" id="account">${sessionScope._front_user.email }</a>
+				<a href="${pageContext.request.contextPath}/front/user/index.action" id="account">${sessionScope._front_user.email }</a>
 			</div>
 		</c:if>
 		<c:if test="${empty _front_user}">
 			<div id="regBlock" style="float:right">
-				<a href="javascript:;" id="reg_open"><img src="../static/img/we.png">注册</a>
-				<a href="javascript:;" id="login_open"><img src="../static/img/we.png">登录</a>
+				<a href="javascript:;" id="reg_open"><img src="static/img/we.png">注册</a>
+				<a href="javascript:;" id="login_open"><img src="static/img/we.png">登录</a>
 			</div>
 		</c:if>
 

@@ -4,7 +4,7 @@
 <html>
 
 <head>
-<base href="${BaseContext}">
+<%-- <base href="${BaseContext}"> --%>
 <meta name="viewport"
 	content="initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta charset="utf-8">

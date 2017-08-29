@@ -35,12 +35,7 @@
 	</properties>
 	<dependencyManagement>
 		<dependencies>
-		<!-- Md5(加密)组件 -->
-		<dependency>  
-    <groupId>commons-codec</groupId>  
-    <artifactId>commons-codec</artifactId>  
-    <version>1.8</version>  
-		</dependency>
+		
 			<!-- 单元测试 -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -164,6 +159,12 @@
 	</dependencyManagement>
 	<!-- 依赖管理 -->
 	 <dependencies>
+	 <!-- Md5(加密)组件 -->
+		<dependency>  
+    <groupId>commons-codec</groupId>  
+    <artifactId>commons-codec</artifactId>  
+    <version>1.8</version>  
+		</dependency>
 	 <!-- 发邮件 -->
 	 <dependency>
 	 <groupId>javax.mail</groupId>

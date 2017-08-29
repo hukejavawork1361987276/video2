@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="${BaseContext}">
+    <%-- <base href="${BaseContext}"> --%>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
@@ -23,7 +23,7 @@
     </header>
     <main>
         <div class="container">
-            <form class="ma" action="resetpwd.do" method="post">
+            <form class="ma" action="${pageContext.request.contextPath}/ret/resetpwd.action">
                <input type="hidden" name="email" value="${email}"/>
                 <input type="hidden" name="captcha" value="${captcha}"/>
                 <div class="form_header">

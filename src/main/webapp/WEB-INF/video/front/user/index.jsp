@@ -1,11 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+ <%String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%> 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="${BaseContext}">
+   <%--  <base href="${BaseContext}"> --%>
+    <base href="<%=basePath%>"> 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
@@ -16,6 +20,8 @@
     <link rel="stylesheet" href="static/css/profile.css">
     <link rel="icon" href="favicon.png" type="image/png">
     <title>在线公开课-智游教育|java|大数据|HTML5|python|UI|PHP视频教程</title>
+    
+   
 </head>
 
 <body>
@@ -25,7 +31,7 @@
             <h2>我的资料</h2>
             <div id="profile_tab">
                 <ul class="profile_tab_header f_left clearfix">
-                    <li><a href="front/user/profile.do">更改资料</a></li>
+                    <li><a href="front/user/profile.action">更改资料</a></li>
                     <li class="profile_tab_line">|</li>
                     <li><a href="front/user/avatar.do">更改头像</a></li>
                     <li class="profile_tab_line">|</li>
@@ -35,24 +41,24 @@
                     
                     <div class="proflle_tab_workplace clearfix">
                         <div class="profile_avatar_area">
-                            <c:if test="${empty user.headUrl}">
+                            <c:if test="${empty user.head_url}">
 		                         <img id="avatar" src="static/img/avatar_lg.png" alt="">
 		                      </c:if>
 		                      
-		                      <c:if test="${not empty user.headUrl}">
-		                         <img id="avatar" width="200px" heigth="200px" src="${user.headUrl}" alt="">
+		                      <c:if test="${not empty user.head_url}">
+		                         <img id="avatar" width="200px" heigth="200px" src="${user.head_url}" alt="">
 		                      </c:if>
                             <p>
-                            <c:if test="${not empty user.nickName}">
+                            <c:if test="${not empty user.nick_name}">
 						          <span>${user.nickName}</span>
 						    </c:if>
-						    <c:if test="${empty user.nickName}">
+						    <c:if test="${empty user.nick_name}">
 						          <span>${user.email }</span>
 						    </c:if> 
                                                                           欢迎回来！</p>
                         </div>
                         <ul class="profile_ifo_area">
-                            <li><span class="dd">昵&#x3000;称：</span>${user.nickName}</li>
+                            <li><span class="dd">昵&#x3000;称：</span>${user.nick_name}</li>
                             <li><span class="dd">性&#x3000;别：</span>
                                 <c:if test="${user.sex==2}">
                                     		女

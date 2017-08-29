@@ -23,12 +23,12 @@
 			</ul>
 			<div id="user_bar">
 				<a href="front/user/index.action">
-					<c:if test="${empty sessionScope._front_user.headUrl}">
+					<c:if test="${empty sessionScope._front_user.head_url}">
 						<img id="avatar" src="static/img/avatar_lg.png" alt="">
 					</c:if>
 
-					<c:if test="${not empty sessionScope._front_user.headUrl}">
-						<img id="avatar" src="${user.headUrl}" alt="">
+					<c:if test="${not empty sessionScope._front_user.head_url}">
+						<img id="avatar" src="${user.head_url}" alt="">
 					</c:if>
 
 				</a>

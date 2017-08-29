@@ -18,13 +18,13 @@ import javax.mail.internet.MimeMessage;
 */ 
 public class MailUtil {
 	//修改为自己的qq邮箱账号
-	private static String myEmailAccount = "563180854@qq.com";
+	private static String myEmailAccount = "1361987276@qq.com";
 	//修改为自己的邮箱授权码
-	private static String myEmailPassword = "dkzhytauhmyabfhg";
+	private static String myEmailPassword = "kxywxqyfvbdpibab";
 	//如果用qq邮箱不用修改，如果用163邮箱，修改为smtp.163.com
 	private static String myEmailSMTPHost = "smtp.qq.com";
 	
-	private static String sendUser = "呵呵";
+	private static String sendUser = "小冰";
 
     /**  
     * @Title: send  

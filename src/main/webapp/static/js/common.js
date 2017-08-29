@@ -30,7 +30,7 @@ $(function(){
 //			var pwd = $('#loginPassword').val();
 			console.log($('#loginForm').serialize());
 			//使用ajax的post方法提交登录信息
-			$.post('front/user/login.do',$('#loginForm').serialize(),function(result){
+			$.post('front/user/login.action',$('#loginForm').serialize(),function(result){
 				console.log(result);
 				if(result.success){
 					//登录成功,刷新页面
@@ -61,16 +61,19 @@ $(function(){
 	
 	//注册请求的处理
 	$('#regForm').validate({
+		
+	
 		submitHandler:function(form){
 			//ajax提交注册信息，并且返回注册结果
 			console.log($('#regForm').serialize());
 			//使用ajax的post方法提交注册信息
-			$.post('front/user/regist.do',$('#regForm').serialize(),function(result){
+			$.post('front/user/regist.action',$('#regForm').serialize(),function(result){
 				console.log(result);
-				if(result.success){
+				if(result.success){alert("asdf");
 					//注册成功,刷新页面
 					location.reload();
-				}else{
+				}else{alert("zdfb");
+					
 					alert(result.message);
 				}
 			},'json');

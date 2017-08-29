@@ -65,7 +65,7 @@ $(function(){
 			//ajax提交注册信息，并且返回注册结果
 			console.log($('#regForm').serialize());
 			//使用ajax的post方法提交注册信息
-			$.post('front/user/regist.do',$('#regForm').serialize(),function(result){
+			$.post('front/user/regist.action',$('#regForm').serialize(),function(result){
 				console.log(result);
 				if(result.success){
 					//注册成功,刷新页面

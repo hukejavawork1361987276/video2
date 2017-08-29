@@ -1,10 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+  <%String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <base href="${BaseContext}">
+    <%-- <base href="${BaseContext}"> --%>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
@@ -12,6 +15,7 @@
     <meta name="description" content="智游教育在线课程视频,为您提供java,python,HTML5,UI,PHP,大数据等学科经典视频教程在线浏览学习,精细化知识点解析,深入浅出,想学不会都难,智游教育,学习成就梦想！">
     <%@include file="./include/style.html"%>
     <title>在线公开课-智游教育|java|大数据|HTML5|python|UI|PHP视频教程</title>
+    <base href="<%=basePath%>">
 
 </head>
 
@@ -30,29 +34,29 @@
                     <tr>
                         <td colspan="2">
                             <a href="front/course/index.do?subjectId=1">
-                                <img src="../static/img/html5.jpg" alt="" class="image scale" draggable="false">
+                                <img src="static/img/html5.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>Web前端教程</span>
-                                    <img src="../static/img/arrow.png" alt="">
+                                    <img src="static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
                         <td>
                             <!--上线时修改id-->
                             <a href="front/course/index.do?subjectId=6">
-                                <img src="../static/img/ui.jpg" alt="" class="image scale" draggable="false">
+                                <img src="static/img/ui.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>UI设计教程</span>
-                                    <img src="../static/img/arrow.png" alt="">
+                                    <img src="static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>
                         <td rowspan="2" class="one_three">
                             <a href="#" class="opacity5">
-                                <img src="../static/img/java.jpg" alt="" class="image" draggable="false">
+                                <img src="static/img/java.jpg" alt="" class="image" draggable="false">
                                 <div class="headline">
                                     <span>Java教程</span>
-                                    <img src="../static/img/arrow.png" alt="">
+                                    <img src="static/img/arrow.png" alt="">
                                 </div>
                             </a>
                         </td>

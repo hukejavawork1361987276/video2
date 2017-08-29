@@ -1,10 +1,14 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="${BaseContext}">
+ <%--    <base href="${BaseContext}"> --%>
+ <base href="<%=basePath%>"> 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
@@ -16,7 +20,7 @@
 
 </head>
 
-<body class="w100">
+<body class="w100">          
     <jsp:include page="uheader.jsp"></jsp:include>
     <main>
         <div class="container">
@@ -32,18 +36,18 @@
                 <div class="proflle_tab_body">
                     <div class="proflle_tab_workplace clearfix">
                         <div class="profile_avatar_area">
-                            <c:if test="${empty user.headUrl}">
+                            <c:if test="${empty user.head_url}">
                                 <img  src="static/img/avatar_lg.png">
                             </c:if>
 
-                            <c:if test="${not empty user.headUrl}">
-                                <img width="200px" height="200px" src="${user.headUrl}">
+                            <c:if test="${not empty user.head_url}">
+                                <img width="200px" height="200px" src="${user.head_url}">
                             </c:if>
                         </div>
                         <div class="profile_ifo_area">
                             <form action="front/user/profile.do" method="post">
                                 <div class="form_group">
-                                    <span class="dd">昵&#x3000;称：</span><input type="text" name="nickName" value="${user.nickName}" >
+                                    <span class="dd">昵&#x3000;称：</span><input type="text" name="nick_name" value="${user.nick_name}" >
                                 </div>
                                 <div class="form_group">
                                     <span class="dd">性&#x3000;别：</span>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyou100.video.mapper.UserMapper">
+<select id="selectMail1" parameterType="String" resultType="Integer" >
+select count(1) from user where email=#{email};
+</select>
+<insert id="userRegister" parameterType="java.util.HashMap">
+insert into user (email,password,insert_time)values(#{email},#{password1},#{timestamp});
+</insert>
+<update id="addCaptcha" parameterType="java.util.HashMap">
+update user set captcha=#{num} where email=#{email};
+</update>
+<select id="captchaYZ" parameterType="java.util.HashMap" resultType="Integer">
+select count(1) from user where captcha=#{captcha} and email=#{email};
+</select>
+<update id="resetpwd" parameterType="java.util.HashMap">
+update user set password=#{password} where email=#{email} and captcha=#{captcha}; 
+</update>
+<select id="login" parameterType="java.util.HashMap" resultType="user">
+select id,email from user where  email=#{email} and password=#{password};
+</select>
+</mapper>
