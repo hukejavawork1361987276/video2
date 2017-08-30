@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
 		function getVideo(id){
 			var subjectId=$('#subjectId').val();
-			location.href='front/video/index.do?videoId='+id+'&subjectId='+subjectId;
+			location.href='front/video/index.action?videoId='+id+'&subjectId='+subjectId;
 		}
 	</script>
 

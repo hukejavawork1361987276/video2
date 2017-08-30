@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 
 import com.zhiyou100.video.mapper.UserMapper;
 import com.zhiyou100.video.model.Course;
+import com.zhiyou100.video.model.Speaker;
 import com.zhiyou100.video.model.Subject;
 import com.zhiyou100.video.model.User;
+import com.zhiyou100.video.model.Video;
 import com.zhiyou100.video.service.UserSercice;
 
 @Service
@@ -64,6 +66,7 @@ UserMapper um;
 	public User login(String email, String password) {
 		Map map=new HashMap<>();
 		String password1= DigestUtils.md5Hex(password);
+		
 		map.put("password", password1);
 		map.put("email", email);
 		return um.login(map);
@@ -121,6 +124,21 @@ UserMapper um;
 	public List<Course> findCourseVideo(String subjectId) {
 		
 		return um.findCourseVideo(subjectId);
+	}
+	@Override
+	public Video findVideo(String videoId) {
+		// TODO Auto-generated method stub
+		return um.findVideo(videoId);
+	}
+	@Override
+	public Speaker findSpeaker(int speakerid) {
+		// TODO Auto-generated method stub
+		return um.findSpeaker(speakerid);
+	}
+	@Override
+	public Course findCourseVideo(int courseid) {
+		// TODO Auto-generated method stub
+		return um.findCourseVideo(courseid);
 	}
 	
 

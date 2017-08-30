@@ -3,8 +3,10 @@ package com.zhiyou100.video.service;
 import java.util.List;
 
 import com.zhiyou100.video.model.Course;
+import com.zhiyou100.video.model.Speaker;
 import com.zhiyou100.video.model.Subject;
 import com.zhiyou100.video.model.User;
+import com.zhiyou100.video.model.Video;
 
 public interface UserSercice {
 	int selectMail(String email);
@@ -30,4 +32,10 @@ public interface UserSercice {
 	Subject findSubject(String subjectId);
 
 	List<Course> findCourseVideo(String subjectId);
+
+	Video findVideo(String videoId);
+
+	Speaker findSpeaker(int speakerid);
+
+	Course findCourseVideo(int courseid);
 }

@@ -60,4 +60,13 @@ c.course_name,c.id coursetable_id,c.course_descr  from subject s
 left join course c on  s.id=c.subject_id)ss left join video v 
 on ss.coursetable_id=v.course_id)xx where xx.subject_id=#{c};
 </select>
+<select id="findVideo" parameterType="String" resultType="video">
+select * from video where id=#{d};
+ </select>
+ <select id="findSpeaker" parameterType="Integer" resultType="speaker">
+ select*from speaker where id=#{id};
+ </select>
+<!--  <select id="findCourseVideo" parameterType="Integer" resultType="course">
+ select * from course c,video v where v.course_id=c.id and c.id=#{vb};
+ </select> -->
 </mapper>

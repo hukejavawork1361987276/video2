@@ -23,8 +23,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhiyou100.video.model.Course;
 import com.zhiyou100.video.model.LoginInf;
+import com.zhiyou100.video.model.Speaker;
 import com.zhiyou100.video.model.Subject;
 import com.zhiyou100.video.model.User;
+import com.zhiyou100.video.model.Video;
 import com.zhiyou100.video.service.LoginSercice;
 import com.zhiyou100.video.service.UserSercice;
 import com.zhiyou100.video.utils.MailUtil;
@@ -249,6 +251,41 @@ System.out.println(user1);
 				
 				return "/front/course/index";
 		}
+		
+		//观看视频
+		@RequestMapping("/front/video/index.action")
+			public String showRadio(String videoId,String subjectId,ModelMap mm){
+			Subject subject		=	us.findSubject(subjectId);
+			mm.addAttribute("subject", subject);
+			mm.addAttribute("videoId", videoId);
+				return "/front/video/index";
+		}
+		//观看视频
+				@RequestMapping("/front/video/videoData.action")
+					public String showRadioData(String videoId,ModelMap mm){
+					Video video	= us.findVideo(videoId);
+				
+					int subjectid =	video.getSubject_id();
+					mm.addAttribute("subjectId", subjectid);
+					
+					int speakerid=	video.getSpeaker_id();
+					Speaker speaker = us.findSpeaker(speakerid);
+				System.out.println("SPEAKER:"+speaker);
+					mm.addAttribute("speaker", speaker);
+					
+					//int courseid = video.getCourse_id();System.out.println(courseid);
+					/*
+					Course course = us.findCourseVideo(courseid);
+				System.out.println("course:"+course);
+					mm.addAttribute("course", course);
+					
+					List<Video> videoList =us.findVideos(subjectid); 
+					mm.addAttribute("videoList", course);
+					*/
+						return "/front/video/content";
+			
+				}
+	
 	/*@RequestMapping(value="user/front/user/regist.action")
 	public String userRegist(String email,String password){
 		StringBuffer body= new StringBuffer();
