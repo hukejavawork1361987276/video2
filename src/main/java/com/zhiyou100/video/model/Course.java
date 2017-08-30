@@ -1,6 +1,7 @@
 package com.zhiyou100.video.model;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Course {
 
@@ -11,8 +12,15 @@ public class Course {
 	 private	 Date insert_time;
 	 private	 Date  update_time;
 	 private   String subject_name;
+	 private  List<Video>  videoList; 
 	 
 	 
+	public List<Video> getVideoList() {
+		return videoList;
+	}
+	public void setVideoList(List<Video> videoList) {
+		this.videoList = videoList;
+	}
 	public String getSubject_name() {
 		return subject_name;
 	}
@@ -54,6 +62,12 @@ public class Course {
 	}
 	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
+	}
+	@Override
+	public String toString() {
+		return "Course [id=" + id + ", subject_id=" + subject_id + ", course_name=" + course_name + ", course_descr="
+				+ course_descr + ", insert_time=" + insert_time + ", update_time=" + update_time + ", subject_name="
+				+ subject_name + ", videoList=" + videoList + "]";
 	}
 	
 	 

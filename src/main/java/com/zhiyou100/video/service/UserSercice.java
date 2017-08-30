@@ -1,5 +1,9 @@
 package com.zhiyou100.video.service;
 
+import java.util.List;
+
+import com.zhiyou100.video.model.Course;
+import com.zhiyou100.video.model.Subject;
 import com.zhiyou100.video.model.User;
 
 public interface UserSercice {
@@ -22,4 +26,8 @@ public interface UserSercice {
 	void updateHeadUrl(User user);
 
 	String editPassword(String oldPassword, String newPassword, String newPasswordAgain, String email);
+
+	Subject findSubject(String subjectId);
+
+	List<Course> findCourseVideo(String subjectId);
 }

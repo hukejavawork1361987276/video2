@@ -1,7 +1,10 @@
 package com.zhiyou100.video.mapper;
 
+import java.util.List;
 import java.util.Map;
 
+import com.zhiyou100.video.model.Course;
+import com.zhiyou100.video.model.Subject;
 import com.zhiyou100.video.model.User;
 
 public interface UserMapper {
@@ -26,4 +29,8 @@ public interface UserMapper {
 	int findOldpassword(Map map );
 
 	void updatePassword(Map map1);
+
+	Subject findSubject(String subjectId);
+
+	List<Course> findCourseVideo(String subjectId);
 }

@@ -1,9 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 
 <head>
+<base href="<%=basePath%>"> 
 <%-- <base href="${BaseContext}"> --%>
 <meta name="viewport"
 	content="initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -26,31 +30,31 @@
 			style="background-image: url('static/img/banner-${subjectId}.jpg')"></div>
 
 		<!--面包屑导航-->
-		<div class="container mian-nav" id="navDiv">公开课 /${subject.subjectName }</div>
+		<div class="container mian-nav" id="navDiv">公开课 /${subject.subject_name }</div>
 		<input type="hidden" id="subjectId" value="${subjectId}">
 		<div class="classify">
 			<div class="container" id="dataContainer">
 			<c:forEach items="${courses }" var="course">
 				<div class="section">
 					<div class="classifyName">
-						<p class="title title-first">${course.courseName }</p>
+						<p class="title title-first">${course.course_name }</p>
 					</div>
 					<div class="kcIntro">
 						<p class="int">
 							<span>课程介绍：</span>
-							${course.courseDescr }
+							${course.course_descr }
 						</p>
 					</div>
 					<ul>
 						<c:forEach items="${course.videoList }" var="video">
 							<li class="section-main" onclick="getVideo(${video.id})">
-							<div class="thum" style="background-image: url(${video.videoImageUrl})"></div>
-								<p>${video.videoTitle }</p>
+							<div class="thum" style="background-image: url(${video.video_image_url})"></div>
+								<p>${video.video_title }</p>
 								<div class="classify-v-info">
 									<span class="count" title="观看次数">
-									<img src="static/img/count.png" alt="">${video.videoPlayTimes }</span>
+									<img src="static/img/count.png" alt="">${video_play_times }</span>
 									<span class="duration" title="视频时长">
-										<img src="static/img/player.png" alt="">${video.videoLengthStr }</span>
+										<img src="static/img/player.png" alt="">${video.video_length }</span>
 								</div>
 							</li>
 						</c:forEach>

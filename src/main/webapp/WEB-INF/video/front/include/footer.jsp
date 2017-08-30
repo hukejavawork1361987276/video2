@@ -3,7 +3,7 @@
 <footer>
 	<ul>
 		<li>
-			<img src="../../static/img/footer_logo.png" alt="" draggable="false">
+			<img src="static/img/footer_logo.png" alt="" draggable="false">
 		</li>
 		<li class="mt25">
 			<h3>各校区地址</h3>

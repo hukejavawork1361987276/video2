@@ -2,6 +2,7 @@ package com.zhiyou100.video.web.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zhiyou100.video.model.Course;
 import com.zhiyou100.video.model.LoginInf;
+import com.zhiyou100.video.model.Subject;
 import com.zhiyou100.video.model.User;
 import com.zhiyou100.video.service.LoginSercice;
 import com.zhiyou100.video.service.UserSercice;
@@ -232,6 +235,20 @@ System.out.println(user1);
 			session.invalidate();
 			return "redirect:/user/userMenuYm.action";
 			}
+		
+		//¿Î³ÌÕ¹Ê¾
+		@RequestMapping("/front/course/index.action")
+			public String showCourse(String subjectId,ModelMap mm){
+				mm.addAttribute("subjectId", subjectId);
+				Subject subject		=	us.findSubject(subjectId);
+				mm.addAttribute("subject", subject);
+			List<Course>  course=	us.findCourseVideo(subjectId);
+				System.out.println(course);
+				mm.addAttribute("courses", course);
+				
+				
+				return "/front/course/index";
+		}
 	/*@RequestMapping(value="user/front/user/regist.action")
 	public String userRegist(String email,String password){
 		StringBuffer body= new StringBuffer();

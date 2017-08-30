@@ -34,4 +34,30 @@ select count(1) from user where email=#{email} and Password=#{oldPassword};
 <update id="updatePassword" parameterType="java.util.HashMap">
 update user set password=#{newPassword} where email=#{email};
 </update>
+<select id="findSubject" parameterType="String" resultType="subject">
+select *from subject where id=#{x};
+</select>
+
+<resultMap type="course" id="videolist">
+<id column="coursetable_id" property="id"/>
+
+<result column="course_name" property="course_name"/>
+<result column="course_descr" property="course_descr"/>
+<collection property="videoList" ofType="video">
+<!-- <id column="id" property="id"/> -->
+<result column="id" property="id"/>
+<result column="video_title" property="video_title"/>
+<result column="video_image_url" property="video_image_url"/>
+<result column="video_play_times" property="video_play_times"/>
+<result column="video_length" property="video_length"/>
+</collection>
+</resultMap>
+
+
+<select id="findCourseVideo" parameterType="String" resultMap="videolist">
+select *from (select *from(select s.subject_name,s.id subject_id, 
+c.course_name,c.id coursetable_id,c.course_descr  from subject s 
+left join course c on  s.id=c.subject_id)ss left join video v 
+on ss.coursetable_id=v.course_id)xx where xx.subject_id=#{c};
+</select>
 </mapper>

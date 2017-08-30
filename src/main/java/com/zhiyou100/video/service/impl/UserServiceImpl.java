@@ -2,6 +2,7 @@ package com.zhiyou100.video.service.impl;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zhiyou100.video.mapper.UserMapper;
+import com.zhiyou100.video.model.Course;
+import com.zhiyou100.video.model.Subject;
 import com.zhiyou100.video.model.User;
 import com.zhiyou100.video.service.UserSercice;
 
@@ -108,6 +111,16 @@ UserMapper um;
 		}
 		
 		
+	}
+	@Override
+	public Subject findSubject(String subjectId) {
+		
+		return um.findSubject(subjectId);
+	}
+	@Override
+	public List<Course> findCourseVideo(String subjectId) {
+		
+		return um.findCourseVideo(subjectId);
 	}
 	
 
