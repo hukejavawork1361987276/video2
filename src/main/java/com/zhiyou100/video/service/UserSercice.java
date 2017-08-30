@@ -14,4 +14,12 @@ public interface UserSercice {
 	void resetpwd(String email,String captcha,String password);
 
 	User login(String email, String password);
+
+	void updateInfo(User user);
+
+	User findAllInf(String email);
+
+	void updateHeadUrl(User user);
+
+	String editPassword(String oldPassword, String newPassword, String newPasswordAgain, String email);
 }

@@ -60,9 +60,54 @@ UserMapper um;
 	@Override
 	public User login(String email, String password) {
 		Map map=new HashMap<>();
-		map.put("password", password);
+		String password1= DigestUtils.md5Hex(password);
+		map.put("password", password1);
 		map.put("email", email);
 		return um.login(map);
+	}
+	@Override
+	public void updateInfo(User user) {
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		user.setUpdate_time(timestamp);
+		
+		um.updateInfo(user);
+		
+	}
+	@Override
+	public User findAllInf(String email) {
+		
+		return um.findAllInf(email);
+	}
+	@Override
+	public void updateHeadUrl(User user) {
+		um.updateHeadUrl(user);
+		
+	}
+	@Override
+	public String editPassword(String oldPassword, String newPassword, String newPasswordAgain, String email) {
+		Map map = new HashMap<>();
+		String password1= DigestUtils.md5Hex(oldPassword);
+		map.put("oldPassword", password1);
+		map.put("email", email);
+		int flag=um.findOldpassword(map);
+		
+		if(flag==1){
+			String a="false";
+			if(newPassword.equals(newPasswordAgain)){
+				Map map1 = new HashMap<>();
+				String password2= DigestUtils.md5Hex(newPassword);
+				map1.put("newPassword", password2);
+				map1.put("email", email);
+				um.updatePassword(map1);
+				a="";	
+			}
+			return a;
+			
+		}else{
+			return "æ…√‹¬Î≤ª’˝»∑!";
+		}
+		
+		
 	}
 	
 

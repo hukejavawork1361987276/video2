@@ -27,11 +27,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <h2>我的资料</h2>
             <div id="profile_tab">
                 <ul class="profile_tab_header f_left clearfix">
-                    <li><a href="front/user/profile.do">更改资料</a></li>
+                    <li><a href="${pageContext.request.contextPath}/front/user/profile.action">更改资料</a></li>
                     <li class="profile_tab_line">|</li>
-                    <li><a href="front/user/avatar.do">更改头像</a></li>
+                    <li><a href="${pageContext.request.contextPath}/front/user/avatar.action">更改头像</a></li>
                     <li class="profile_tab_line">|</li>
-                    <li><a href="front/user/password.do">密码安全</a></li>
+                    <li><a href="${pageContext.request.contextPath}/front/user/password.action">密码安全</a></li>
                 </ul>
                 <div class="proflle_tab_body">
                     <div class="proflle_tab_workplace clearfix">
@@ -41,11 +41,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </c:if>
 
                             <c:if test="${not empty user.head_url}">
-                                <img width="200px" height="200px" src="${user.head_url}">
+                                <img width="200px" height="200px" src="/pic/${user.head_url}">
                             </c:if>
                         </div>
                         <div class="profile_ifo_area">
-                            <form action="front/user/profile.do" method="post">
+                            <form action="${pageContext.request.contextPath}/front/user/profile.action" method="post">
                                 <div class="form_group">
                                     <span class="dd">昵&#x3000;称：</span><input type="text" name="nick_name" value="${user.nick_name}" >
                                 </div>
@@ -56,10 +56,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </div>
                                 <div class="form_group">
                                     <span class="dd">生&#x3000;日：</span>
-                                    <input type="date"  name="birthdayStr" value="${user.birthdayStr}">
+                                    <input type="date"  name="birthday" value="${user.birthday}">
                                 </div>
                                 <div class="form_group">
                                     <span class="dd">邮&#x3000;箱：</span>
+                                      <input type="hidden"  name="email" value="${user.email}"> 
                                     <span >${user.email}</span>
                                 </div>
                                 <div class="form_group">

@@ -18,8 +18,8 @@
 	<menu>
 		<div class="container clearfix">
 			<ul class="clearfix f_left">
-				<li><a href="index.do">首页</a></li>
-				<li class="menu_active"><a href="front/user/index.do">个人中心</a></li>
+				<li><a href="${pageContext.request.contextPath}/user/userMenuYm.action">首页</a></li>
+				<li class="menu_active"><a href="${pageContext.request.contextPath}/front/user/index.action">个人中心</a></li>
 			</ul>
 			<div id="user_bar">
 				<a href="front/user/index.action">
@@ -32,7 +32,7 @@
 					</c:if>
 
 				</a>
-				<a href="front/user/logout.do" id="lay_out">退出</a>
+				<a href="${pageContext.request.contextPath}/front/user/logout.action" id="lay_out">退出</a>
 			</div>
 		</div>
 	</menu>

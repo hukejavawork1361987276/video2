@@ -16,4 +16,14 @@ public interface UserMapper {
 	void resetpwd(Map map);
 
 	User login(Map map);
+
+	void updateInfo(User user);
+
+	User findAllInf(String email);
+
+	void updateHeadUrl(User user);
+
+	int findOldpassword(Map map );
+
+	void updatePassword(Map map1);
 }

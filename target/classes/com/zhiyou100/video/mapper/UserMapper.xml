@@ -17,6 +17,21 @@ select count(1) from user where captcha=#{captcha} and email=#{email};
 update user set password=#{password} where email=#{email} and captcha=#{captcha}; 
 </update>
 <select id="login" parameterType="java.util.HashMap" resultType="user">
-select id,email from user where  email=#{email} and password=#{password};
+select * from user where  email=#{email} and password=#{password};
 </select>
+<update id="updateInfo" parameterType="user">
+update user set nick_name=#{nick_name},sex=#{sex},province=#{province} ,birthday=#{birthday},city=#{city},update_time=#{update_time} where email=#{email} ; 
+</update>
+<select id="findAllInf" parameterType="user" resultType="user">
+select*from user where email=#{email};
+</select>
+<update id="updateHeadUrl">
+update user set head_url=#{head_url}
+</update>
+<select id="findOldpassword" parameterType="java.util.HashMap" resultType="Integer">
+select count(1) from user where email=#{email} and Password=#{oldPassword};
+</select>
+<update id="updatePassword" parameterType="java.util.HashMap">
+update user set password=#{newPassword} where email=#{email};
+</update>
 </mapper>

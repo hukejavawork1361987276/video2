@@ -1,10 +1,14 @@
 package com.zhiyou100.video.web.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.junit.runner.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +16,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -126,8 +131,12 @@ public String relogin(){
 @RequestMapping("/front/user/login.action")
 @ResponseBody
 public String login(String email,String password,HttpSession session){
+	System.out.println(password);
+	System.out.println(email);
+	
 	User user =	us.login(email,password);
 	session.setAttribute("_front_user", user);
+	session.setAttribute("user", user);
 	LoginInf inf = new LoginInf();
 	ObjectMapper mapper = new ObjectMapper();
 	String json=null;
@@ -148,14 +157,81 @@ public String login(String email,String password,HttpSession session){
 //跳入个人资料
 @RequestMapping("/front/user/index.action")
 	public String userInfo(){
+
 		return "/front/user/index"; 
 	}
 
-//更改个人资料页面
-@RequestMapping("front/user/profile.action")
-	public String editUserInfo(){
-		return "/front/user/profile"; 
+//更改个人资料
+@RequestMapping(value="/front/user/profile.action",method=RequestMethod.POST)
+	public String editUserInfoYm(User user,HttpSession session){
+	
+	us.updateInfo(user);
+User user1 =	us.findAllInf(user.getEmail());
+System.out.println(user1);
+	session.setAttribute("user", user1);
+	return "redirect:/front/user/index.action"; 
 	}
+	//更改个人资料页面
+	@RequestMapping("/front/user/profile.action")
+		public String editUserInfo(){
+			return "/front/user/profile"; 
+		}
+	
+	
+	//更改个人头像页面
+		@RequestMapping("/front/user/avatar.action")
+			public String editUserPicYM(){
+				return "/front/user/avatar"; 
+			}
+		
+		//更改个人头像
+		@RequestMapping(value="/front/user/avatar.action",method=RequestMethod.POST)
+			public String editUserPic(User user,MultipartFile image_file,HttpSession session){
+		
+	       String str = UUID.randomUUID().toString().replaceAll("-", "");
+	       String ext = FilenameUtils.getExtension(image_file.getOriginalFilename());
+	       String fileName = str+"."+ext;
+	       user.setHead_url(fileName);
+	      us.updateHeadUrl(user);
+	      
+	        String path = "D:\\develo\\Java\\vimage";
+	      
+	       try {
+			image_file.transferTo(new File(path+"\\"+fileName));
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+	       User user1 =	us.findAllInf(user.getEmail());
+	       System.out.println(user1);
+	   	session.setAttribute("user", user1);
+	       return "/front/user/index"; 
+			}
+		
+		//更改密码ym
+		@RequestMapping(value="/front/user/password.action")
+			public String editPasswordym(){
+
+	       return "/front/user/password"; 
+			}
+		//更改密码
+		@RequestMapping(value="/front/user/password.action",method=RequestMethod.POST)
+			public String editPassword(String oldPassword,String newPassword,String newPasswordAgain,String email){
+			String mes =	us.editPassword( oldPassword, newPassword, newPasswordAgain, email);
+			if(mes==""){
+				return "/front/user/index";
+			}else{
+				return"";
+			}
+			}
+		
+		//退出
+		@RequestMapping("/front/user/logout.action")
+			public String exit(HttpSession session){
+			session.invalidate();
+			return "redirect:/user/userMenuYm.action";
+			}
 	/*@RequestMapping(value="user/front/user/regist.action")
 	public String userRegist(String email,String password){
 		StringBuffer body= new StringBuffer();

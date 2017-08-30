@@ -1,6 +1,7 @@
 package com.zhiyou100.video.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class User {
 
@@ -13,9 +14,9 @@ public class User {
 	private String city;
 	private String head_url;
 	private String password;
-	private Date insert_time;
-	private Date update_time;
-	private int captcha;
+	private Timestamp insert_time;
+	private Timestamp update_time;
+	private String captcha;
 	public int getId() {
 		return id;
 	}
@@ -70,22 +71,24 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getInsert_time() {
+	
+	
+	public Timestamp getInsert_time() {
 		return insert_time;
 	}
-	public void setInsert_time(Date insert_time) {
+	public void setInsert_time(Timestamp insert_time) {
 		this.insert_time = insert_time;
 	}
-	public Date getUpdate_time() {
+	public Timestamp getUpdate_time() {
 		return update_time;
 	}
-	public void setUpdate_time(Date update_time) {
+	public void setUpdate_time(Timestamp update_time) {
 		this.update_time = update_time;
 	}
-	public int getCaptcha() {
+	public String getCaptcha() {
 		return captcha;
 	}
-	public void setCaptcha(int captcha) {
+	public void setCaptcha(String captcha) {
 		this.captcha = captcha;
 	}
 	@Override
@@ -95,6 +98,7 @@ public class User {
 				+ password + ", insert_time=" + insert_time + ", update_time=" + update_time + ", captcha=" + captcha
 				+ "]";
 	}
+	
 	
 	
 }
