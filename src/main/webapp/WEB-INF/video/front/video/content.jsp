@@ -48,7 +48,7 @@
 				<p class="lecturer">讲师：${video.speaker_name}</p>
 				<div class="v-info">
 					<span class="count"><img src="static/img/count.png" alt="">${video.video_play_times}</span>
-					<span class="duration"><img src="static/img/player.png" alt="">${video.video_length}</span>
+					<span class="duration"><img src="static/img/player.png" alt="">${video.video_lengthStr}</span>
 				</div>
 			</div>
 		</c:forEach>

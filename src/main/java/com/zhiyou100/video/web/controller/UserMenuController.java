@@ -29,6 +29,7 @@ import com.zhiyou100.video.model.User;
 import com.zhiyou100.video.model.Video;
 import com.zhiyou100.video.service.LoginSercice;
 import com.zhiyou100.video.service.UserSercice;
+import com.zhiyou100.video.utils.HMS;
 import com.zhiyou100.video.utils.MailUtil;
 
 @Controller
@@ -255,7 +256,19 @@ System.out.println(user1);
 				Subject subject		=	us.findSubject(subjectId);
 				mm.addAttribute("subject", subject);
 			List<Course>  course=	us.findCourseVideo(subjectId);
-				
+			for (Course course2 : course) {
+				List<Video> videoList = course2.getVideoList();
+				for (Video video : videoList) {
+					int vlength = video.getVideo_length();
+					String  vlengthStr=	HMS.trans(vlength);
+						video.setVideo_lengthStr(vlengthStr);
+					
+					
+					
+				}
+			}	
+			
+			
 				mm.addAttribute("courses", course);
 				
 				
@@ -307,6 +320,8 @@ System.out.println(user1);
 				@RequestMapping("/front/video/videoDataTitle.action")
 					public String showRadioDataTitle(String videoId,String subjectId,ModelMap mm,HttpSession session){		
 					Video video	= us.findVideoinf(videoId);
+					
+					
 					mm.addAttribute("video", video);
 
 					mm.addAttribute("subjectId", subjectId);
@@ -326,7 +341,9 @@ System.out.println(user1);
 			int courseid=	video.getCourse_id();
 					List<Video> videoList =us.findVideos(courseid);
 					for (Video video2 : videoList) {
-						System.out.println(video2);
+						int vlength = video2.getVideo_length();
+					String  vlengthStr=	HMS.trans(vlength);
+						video2.setVideo_lengthStr(vlengthStr);
 					}
 					
 					

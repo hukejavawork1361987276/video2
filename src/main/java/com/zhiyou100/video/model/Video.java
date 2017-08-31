@@ -27,12 +27,19 @@ public class Video {
 	private	String course_name;
 	private int  subject_id;
 	private String subject_name;
+	private String video_lengthStr;
 	
 	
 	
 	
 	
 	
+	public String getVideo_lengthStr() {
+		return video_lengthStr;
+	}
+	public void setVideo_lengthStr(String video_lengthStr) {
+		this.video_lengthStr = video_lengthStr;
+	}
 	public String getSpeaker_name() {
 		return speaker_name;
 	}

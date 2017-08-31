@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="count" title="观看次数">
 									<img src="static/img/count.png" alt="">${video_play_times }</span>
 									<span class="duration" title="视频时长">
-										<img src="static/img/player.png" alt="">${video.video_length }</span>
+										<img src="static/img/player.png" alt="">${video.video_lengthStr }</span>
 								</div>
 							</li>
 						</c:forEach>
