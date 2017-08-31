@@ -26,8 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div>
     <!--面包屑导航-->
+    
     <div class="container mian-nav">公开课 / ${subject.subject_name}</div>
     <input type="hidden" id="videoId" value="${videoId}">
+    <input type="hidden" value="${subjectId}" id="subjectId">
     <div id="content">
 		
     </div>
@@ -39,11 +41,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="static/js/video.js"></script>
     <script>
         $(function () {
+        	
         	var id = $('#videoId').val();
-           $('#content').load('front/video/videoData.action?videoId='+id);
-           
+        	var subjectId = $('#subjectId').val();
+        	
+           //$('#content').load('front/video/videoDataTitle.action?videoId='+id+'&sid='+sid);
+           $('#content').load('front/video/videoDataTitle.action?videoId='+id+'&subjectId='+subjectId);
            //播放量统计,不需要返回结果处理
-           $.get('front/video/state.do?videoId='+id);
+           $.get('front/video/state.action?videoId='+id+'&subjectId='+subjectId);
 		});
     </script>
 </body>

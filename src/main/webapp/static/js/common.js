@@ -72,7 +72,7 @@ $(function(){
 				if(result.success){alert("asdf");
 					//注册成功,刷新页面
 					location.reload();
-				}else{alert("zdfb");
+				}else{
 					
 					alert(result.message);
 				}

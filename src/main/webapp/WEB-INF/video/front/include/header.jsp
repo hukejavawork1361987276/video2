@@ -9,7 +9,7 @@
 
 		<c:if test="${not empty _front_user}">
 			<div id="userBlock" style="float:right">
-				<a href="front/user/logout.do">退出</a>
+				<a href="${pageContext.request.contextPath}/front/user/logout.action">退出</a>
 				<a href="${pageContext.request.contextPath}/front/user/index.action" id="account">${sessionScope._front_user.email }</a>
 			</div>
 		</c:if>
@@ -21,7 +21,7 @@
 		</c:if>
 
 		<a onclick="JavaScript:addFavorite2()"><img src="static/img/sc.png" draggable="false">加入收藏</a>
-		<a target="_blank" href="admin/login.do"><img src="static/img/we.png" draggable="false">后台管理</a>
+		<a target="_blank" href="${pageContext.request.contextPath}/loginYm.action"><img src="static/img/we.png" draggable="false">后台管理</a>
 		<a class="color_e4"><img src="static/img/phone.png" draggable="false"> 0371-88888598&#x3000;&#x3000;4006-371-555</a>
 
 	</div>

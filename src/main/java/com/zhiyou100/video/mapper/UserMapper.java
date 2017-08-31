@@ -32,13 +32,21 @@ public interface UserMapper {
 
 	void updatePassword(Map map1);
 
-	Subject findSubject(String subjectId);
+	Subject findSubject(int subjectId);
 
-	List<Course> findCourseVideo(String subjectId);
+	List<Course> findCourseVideo(int subjectId);
 
 	Video findVideo(String videoId);
 
 	Speaker findSpeaker(int speakerid);
 
-	Course findCourseVideo(int courseid);
+	Course findCourse(String videoId);
+
+	List<Video> findVideos(String subjectid);
+
+	void updateCount(Integer videoId);
+
+	Video findVideoinf(String videoId);
+
+	
 }

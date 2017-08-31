@@ -23,8 +23,8 @@ public class Video {
 	private int video_length;
 	private	String speakerName;
 	private	String courseName;
-	/*private	String speaker_name;
-	private	String course_name;*/
+	private	String speaker_name;
+	private	String course_name;
 	private int  subject_id;
 	private String subject_name;
 	
@@ -32,19 +32,19 @@ public class Video {
 	
 	
 	
-//	
-//	public String getSpeaker_name() {
-//		return speaker_name;
-//	}
-//	public void setSpeaker_name(String speaker_name) {
-//		this.speaker_name = speaker_name;
-//	}
-//	public String getCourse_name() {
-//		return course_name;
-//	}
-//	public void setCourse_name(String course_name) {
-//		this.course_name = course_name;
-//	}
+	
+	public String getSpeaker_name() {
+		return speaker_name;
+	}
+	public void setSpeaker_name(String speaker_name) {
+		this.speaker_name = speaker_name;
+	}
+	public String getCourse_name() {
+		return course_name;
+	}
+	public void setCourse_name(String course_name) {
+		this.course_name = course_name;
+	}
 	public int getSubject_id() {
 		return subject_id;
 	}
@@ -159,8 +159,10 @@ public class Video {
 				+ video_play_times + ", video_title=" + video_title + ", video_image_url=" + video_image_url
 				+ ", video_url=" + video_url + ", video_descr=" + video_descr + ", insert_time=" + insert_time
 				+ ", update_time=" + update_time + ", video_length=" + video_length + ", speakerName=" + speakerName
-				+ ", courseName=" + courseName + ", course=" + course + ", speaker=" + speaker + "]";
+				+ ", courseName=" + courseName + ", subject_id=" + subject_id + ", subject_name=" + subject_name
+				+ ", course=" + course + ", speaker=" + speaker + "]";
 	}
+	
 	
 	}
 	

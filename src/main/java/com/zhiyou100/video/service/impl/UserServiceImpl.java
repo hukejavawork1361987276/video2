@@ -116,12 +116,12 @@ UserMapper um;
 		
 	}
 	@Override
-	public Subject findSubject(String subjectId) {
+	public Subject findSubject(int subjectId) {
 		
 		return um.findSubject(subjectId);
 	}
 	@Override
-	public List<Course> findCourseVideo(String subjectId) {
+	public List<Course> findCourseVideo(int subjectId) {
 		
 		return um.findCourseVideo(subjectId);
 	}
@@ -136,10 +136,27 @@ UserMapper um;
 		return um.findSpeaker(speakerid);
 	}
 	@Override
-	public Course findCourseVideo(int courseid) {
-		// TODO Auto-generated method stub
-		return um.findCourseVideo(courseid);
+	public Course findCourse(String videoId) {
+	
+		return um.findCourse(videoId) ;
 	}
+	@Override
+	public List<Video> findVideos(String subjectid) {
+	
+		return um.findVideos(subjectid);
+	}
+	@Override
+	public void updateCount(Integer videoId) {
+		
+		um.updateCount(videoId);
+		
+	}
+	@Override
+	public Video findVideoinf(String videoId) {
+		
+		return um.findVideoinf(videoId);
+	}
+	
 	
 
 }

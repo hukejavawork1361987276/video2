@@ -240,50 +240,98 @@ System.out.println(user1);
 		
 		//课程展示
 		@RequestMapping("/front/course/index.action")
-			public String showCourse(String subjectId,ModelMap mm){
+			public String showCourse(int subjectId,ModelMap mm){
 				mm.addAttribute("subjectId", subjectId);
 				Subject subject		=	us.findSubject(subjectId);
 				mm.addAttribute("subject", subject);
 			List<Course>  course=	us.findCourseVideo(subjectId);
-				System.out.println(course);
+				
 				mm.addAttribute("courses", course);
 				
 				
 				return "/front/course/index";
 		}
 		
-		//观看视频
+		//观看视频1
 		@RequestMapping("/front/video/index.action")
-			public String showRadio(String videoId,String subjectId,ModelMap mm){
+			public String showRadio(String videoId,int subjectId,ModelMap mm,HttpSession session){
 			Subject subject		=	us.findSubject(subjectId);
 			mm.addAttribute("subject", subject);
 			mm.addAttribute("videoId", videoId);
+			System.out.println("subjectId_--------"+subjectId);
+			session.setAttribute("subjectId", subjectId);
 				return "/front/video/index";
 		}
-		//观看视频
-				@RequestMapping("/front/video/videoData.action")
+	//观看视频2
+				/*@RequestMapping("/front/video/videoData.action")
 					public String showRadioData(String videoId,ModelMap mm){
+					System.out.println("videoId:"+videoId);
+					
 					Video video	= us.findVideo(videoId);
-				
+					mm.addAttribute("video", video);
+			System.out.println("video:"+video);
 					int subjectid =	video.getSubject_id();
+					
 					mm.addAttribute("subjectId", subjectid);
 					
 					int speakerid=	video.getSpeaker_id();
 					Speaker speaker = us.findSpeaker(speakerid);
-				System.out.println("SPEAKER:"+speaker);
+				
 					mm.addAttribute("speaker", speaker);
 					
-					//int courseid = video.getCourse_id();System.out.println(courseid);
-					/*
-					Course course = us.findCourseVideo(courseid);
-				System.out.println("course:"+course);
-					mm.addAttribute("course", course);
 					
-					List<Video> videoList =us.findVideos(subjectid); 
-					mm.addAttribute("videoList", course);
-					*/
+				
+				Course inf=	us.findCourse(videoId);
+					mm.addAttribute("course", inf);
+					
+					List<Video> videoList =us.findVideos(subjectid);
+					
+					mm.addAttribute("videoList", videoList);
+					
 						return "/front/video/content";
 			
+				}*/
+				
+				
+				//观看视频(点击title)
+				@RequestMapping("/front/video/videoDataTitle.action")
+					public String showRadioDataTitle(String videoId,String subjectId,ModelMap mm,HttpSession session){
+					System.out.println("videoId:"+videoId);
+					System.out.println("sid:"+subjectId);
+					
+					Video video	= us.findVideoinf(videoId);
+					mm.addAttribute("video", video);
+			System.out.println("vid---------eo:"+video);
+					
+					
+					mm.addAttribute("subjectId", subjectId);
+					
+					int speakerid=	video.getSpeaker_id();
+					Speaker speaker = us.findSpeaker(speakerid);
+				
+					mm.addAttribute("speaker", speaker);
+					
+					
+				
+				Course inf=	us.findCourse(videoId);
+					mm.addAttribute("course", inf);
+					
+					List<Video> videoList =us.findVideos(subjectId);
+					for (Video video2 : videoList) {
+						System.out.println(video2);
+					}
+					
+					
+					mm.addAttribute("videoList", videoList);
+					
+						return "/front/video/content";
+			
+				}
+				//统计播放次数
+				@RequestMapping("front/video/state.action")
+				public void count(Integer videoId){
+					us.updateCount(videoId);
+				
 				}
 	
 	/*@RequestMapping(value="user/front/user/regist.action")
