@@ -295,15 +295,10 @@ System.out.println(user1);
 				
 				//观看视频(点击title)
 				@RequestMapping("/front/video/videoDataTitle.action")
-					public String showRadioDataTitle(String videoId,String subjectId,ModelMap mm,HttpSession session){
-					System.out.println("videoId:"+videoId);
-					System.out.println("sid:"+subjectId);
-					
+					public String showRadioDataTitle(String videoId,String subjectId,ModelMap mm,HttpSession session){		
 					Video video	= us.findVideoinf(videoId);
 					mm.addAttribute("video", video);
-			System.out.println("vid---------eo:"+video);
-					
-					
+
 					mm.addAttribute("subjectId", subjectId);
 					
 					int speakerid=	video.getSpeaker_id();
@@ -316,6 +311,8 @@ System.out.println(user1);
 				Course inf=	us.findCourse(videoId);
 					mm.addAttribute("course", inf);
 					
+					
+			//int courseid=	video.getCourse_id();
 					List<Video> videoList =us.findVideos(subjectId);
 					for (Video video2 : videoList) {
 						System.out.println(video2);
