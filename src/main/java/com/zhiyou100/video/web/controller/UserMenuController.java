@@ -103,10 +103,12 @@ public class UserMenuController {
 	}
 	//到重置密码页面
 	@RequestMapping(value="/front/user/forgetpwd.action",method=RequestMethod.POST)
-	public String forgetYZ(String captcha,String email,HttpSession session){
+	public String forgetYZ(String captcha,String email,HttpSession session,ModelMap mm){
 	int a=	us.captchaYZ( captcha,email);
+	session.setAttribute("mailMsg", a);
 	session.setAttribute("email", email);
-	session.setAttribute("captcha", captcha);
+	mm.addAttribute("captcha", captcha);
+	//session.setAttribute("captcha", captcha);
 	if(a==1){
 		return "/front/user/reset_pwd"; 
 	}else{
@@ -168,7 +170,7 @@ public String login(String email,String password,HttpSession session){
 	}
 	}
 //跳入个人资料
-@RequestMapping("/front/index.action")
+@RequestMapping("/front/user/index1.action")
 	public String userInfo(){
 
 		return "/front/user/index"; 

@@ -2,6 +2,7 @@ package com.zhiyou100.video.web.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,9 +24,33 @@ public class FontsInterceptor implements HandlerInterceptor{
 	}
 
 	@Override
-	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean preHandle(HttpServletRequest req, HttpServletResponse arg1, Object arg2) throws Exception {
+		/*int  a=(int)req.getSession().getAttribute("mailMsg");
+		System.out.println("adsfgh");
+		if(a==1){
+			System.out.println(req.getServletPath());
+			if (req.getServletPath().equals("/front/user/resetpwd.action")) {
+				return true;
+			} else {
+				return false;
+			}
+		}else{*/
+		
+			String user= (String) req.getSession().getAttribute("user");
+			if (user==null) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+	
 	}
 
-}
+
