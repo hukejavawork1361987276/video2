@@ -4,6 +4,8 @@ package com.zhiyou100.video.web.controller;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +29,7 @@ public class Login {
 	
 	
 	 @RequestMapping("/login.action")
-	public String loginController(String name,String password){
+	public String loginController(String name,String password,HttpSession session){
 		/* MessageDigest md= null;
 		try {
 			md = MessageDigest.getInstance("MD5");
@@ -47,7 +49,7 @@ public class Login {
 		 
 		 String password1= DigestUtils.md5Hex(password); 
 	int flag=ls.loginSuccess(name, password1);
-	
+	session.setAttribute("flag", flag);
 	if(flag==1){
 		return "menu";
 	}

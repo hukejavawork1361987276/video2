@@ -8,6 +8,8 @@
 <title>提示消息页面</title>
 </head>
 <body>
-<h1>${message }</h1>
+<%-- <h1>${message }</h1> --%>
+<h1>${obj}</h1>
+<h1>${exception}</h1>
 </body>
 </html>

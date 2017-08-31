@@ -23,9 +23,15 @@ public class AdminInterceptor implements HandlerInterceptor{
 	}
 
 	@Override
-	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean preHandle(HttpServletRequest req, HttpServletResponse arg1, Object arg2) throws Exception {
+		int a= (int)req.getSession().getAttribute("flag"); 
+		System.out.println(a);
+		if(a==1){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 
 }

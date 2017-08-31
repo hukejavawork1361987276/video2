@@ -245,7 +245,7 @@ System.out.println(user1);
 		@RequestMapping("/front/user/logout.action")
 			public String exit(HttpSession session){
 			session.invalidate();
-			return "redirect:/user/userMenuYm.action";
+			return "redirect:/front/user/userMenuYm.action";
 			}
 		
 		//©нЁлу╧й╬

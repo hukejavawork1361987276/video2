@@ -40,17 +40,14 @@
       <bean class="com.zhiyou100.video.web.interceptor.FontsInterceptor"/>
    </mvc:interceptor>
    
-  <!--  <mvc:interceptor> 
-   <mvc:mapping path=".action"/>
-      <mvc:exclude-mapping path="/static/css/**"/>
-      <mvc:exclude-mapping path="/static/fonts/**"/>
-      <mvc:exclude-mapping path="/static/img/**"/>
-      <mvc:exclude-mapping path="/static/js/**"/>
+  <mvc:interceptor> 
+   <mvc:mapping path="/vedio/**"/>
+
       <bean class="com.zhiyou100.video.web.interceptor.AdminInterceptor"/>
-   </mvc:interceptor> -->
+   </mvc:interceptor> 
    
 </mvc:interceptors> 
-
+<bean class="com.zhiyou100.video.web.exception.VideoException"/>
 
 
 </beans>

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.zhiyou100.video.model.User;
+
 public class FontsInterceptor implements HandlerInterceptor{
 
 	@Override
@@ -36,7 +38,8 @@ public class FontsInterceptor implements HandlerInterceptor{
 			}
 		}else{*/
 		
-			String user= (String) req.getSession().getAttribute("user");
+			User user= (User) req.getSession().getAttribute("user");
+			System.out.println(user);
 			if (user==null) {
 				return false;
 			} else {
