@@ -58,7 +58,7 @@ UserMapper um;
 		Map map=new HashMap<>();
 		map.put("captcha", captcha);
 		map.put("email", email);
-		map.put("password", password);
+		map.put("password", password1);
 		um.resetpwd(map);
 		
 	}
@@ -141,9 +141,9 @@ UserMapper um;
 		return um.findCourse(videoId) ;
 	}
 	@Override
-	public List<Video> findVideos(String subjectid) {
+	public List<Video> findVideos(int courseid) {
 	
-		return um.findVideos(subjectid);
+		return um.findVideos(courseid);
 	}
 	@Override
 	public void updateCount(Integer videoId) {

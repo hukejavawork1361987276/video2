@@ -42,12 +42,12 @@
 			<img src="static/img/logo.png" alt="" class="ma">
 		</div>
 		<div class="mask_content_body">
-			<form id="loginForm" action="${pageContext.request.contextPath}/front/user/login.action" method="post">
+			<form id="loginForm" >
 				<h3>快速登录</h3>
 				<input type="email" id="loginEmail" placeholder="请输入邮箱" name="email">
 				<input type="password" id="loginPassword" placeholder="请输入密码" name="password">
 				<div id="forget">
-					<a href="${pageContext.request.contextPath}/forgetpwd.action">忘记密码？</a>
+					<a href="${pageContext.request.contextPath}/front/user/forgetpwd.action">忘记密码？</a>
 				</div>
 				<input type="submit" value="登&#x3000;录">
 			</form>

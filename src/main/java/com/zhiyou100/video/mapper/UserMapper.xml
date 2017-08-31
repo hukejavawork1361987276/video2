@@ -70,10 +70,10 @@ on ss.coursetable_id=v.course_id)xx where xx.subject_id=#{c};
  select course_descr from course c,video v where v.course_id=c.id and v.id=#{s};
  </select>
  
- <select id="findVideos" parameterType="String" resultType="video">
+ <select id="findVideos" parameterType="Integer" resultType="video">
  select  DISTINCT v.id,v.video_descr,s.speaker_name ,
- v.video_play_times,v.video_length,v.video_title from course c,video v,
- speaker s where v.speaker_id=s.id and c.subject_id=#{c};
+ v.video_play_times,v.video_length,v.video_title from
+  course c,video v,speaker s where v.speaker_id=s.id and v.course_id=#{ds};
  </select>
  <update id="updateCount" parameterType="Integer">
  update video set video_play_times=video_play_times+1 where id=#{ds};

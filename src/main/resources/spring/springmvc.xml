@@ -16,21 +16,6 @@
 
 <context:component-scan base-package="com.zhiyou100.video.web.controller"/>
 <mvc:annotation-driven/>
-<!-- 
-	转换器工厂,创建转换器的
-	如果将来有需求,需要将提交数据进行格式化
- -->
-<!-- <mvc:annotation-driven conversion-service="conversionService"/>
-
-
-<bean name="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-	<property name="converters">
-		<set>
- 			<bean class="com.zhiyou100.ssm.util.DateConvert"/>
-		</set>
-	</property>
-</bean> -->
-
 
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/video/"></property>
@@ -41,6 +26,31 @@
 <bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">   
 <property name="maxUploadSize" value="6291456"></property>
 </bean>
+
+ <mvc:interceptors>
+   <mvc:interceptor> 
+      <mvc:mapping path="/front/user/**"/>
+     
+      <mvc:exclude-mapping path="/front/user/userMenuYm.action"/>
+      <mvc:exclude-mapping path="/front/user/regist.action"/>
+      <mvc:exclude-mapping path="/front/user/forgetpwd.action"/>
+      <mvc:exclude-mapping path="/front/user/sendemail.action"/>
+      <mvc:exclude-mapping path="/front/user/index.action"/>
+      <mvc:exclude-mapping path="/front/user/login.action"/>
+      <bean class="com.zhiyou100.video.web.interceptor.FontsInterceptor"/>
+   </mvc:interceptor>
+   
+  <!--  <mvc:interceptor> 
+   <mvc:mapping path=".action"/>
+      <mvc:exclude-mapping path="/static/css/**"/>
+      <mvc:exclude-mapping path="/static/fonts/**"/>
+      <mvc:exclude-mapping path="/static/img/**"/>
+      <mvc:exclude-mapping path="/static/js/**"/>
+      <bean class="com.zhiyou100.video.web.interceptor.AdminInterceptor"/>
+   </mvc:interceptor> -->
+   
+</mvc:interceptors> 
+
 
 
 </beans>

@@ -1,8 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+ <%String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<base href="<%=basePath%>">
    <%--  <base href="${BaseContext}"> --%>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8">
@@ -24,14 +28,14 @@
     </header>
     <main>
         <div class="container">
-            <form class="ma" action="${pageContext.request.contextPath}/forgetpwd.action" method="post" >
+            <form class="ma" action="${pageContext.request.contextPath}/front/user/forgetpwd.action" method="post" >
                 <div class="form_header">
                     <div class="form_title">
                         <h2>忘记密码</h2>
                         <span>通过注册邮箱重设密码</span>
                     </div>
                     <div class="form_back">
-                        <a href="${pageContext.request.contextPath}/fanhui/index.action">返回立即登录</a>
+                        <a href="${pageContext.request.contextPath}/front/user/index.action">返回立即登录</a>
                     </div>
                 </div>
                 <div class="form_body">
@@ -54,7 +58,7 @@
 			var email = $('#email').val();
 			//改为ajax提交邮箱
 			if(email!=null&&email!=''){
-				$.post('${pageContext.request.contextPath}/sendemail.action',{email:email},function(data){
+				$.post('${pageContext.request.contextPath}/front/user/sendemail.action',{email:email},function(data){
 					console.log(data);
 					if(data.success){
 						alert('验证码已发送到邮箱，请注意查收');

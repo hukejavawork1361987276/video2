@@ -39,7 +39,7 @@ public interface UserSercice {
 
 	Course findCourse(String videoId);
 
-	List<Video> findVideos(String sid);
+	List<Video> findVideos(int sid);
 
 	void updateCount(Integer videoId);
 

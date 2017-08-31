@@ -37,7 +37,7 @@ public class UserMenuController {
 	@Autowired
 	UserSercice us;
 	//登录页面
-	@RequestMapping("/user/userMenuYm.action")
+	@RequestMapping("/front/user/userMenuYm.action")
 	public String userMenuYmController(){
 		return "/front/index"; 	
 	}
@@ -69,13 +69,13 @@ public class UserMenuController {
 	
 	
 	//点击忘记密码,进入的界面,发送邮件
-	@RequestMapping("/forgetpwd.action")
+	@RequestMapping("/front/user/forgetpwd.action")
 	public String forgetYm(){
 		return "/front/user/forget_pwd"; 
 		
 	}
 	//发送验证信息
-	@RequestMapping("/sendemail.action")
+	@RequestMapping("/front/user/sendemail.action")
 	@ResponseBody
 	public String sendemailYm(String email){
 		String num=	 UUID.randomUUID().toString();
@@ -102,7 +102,7 @@ public class UserMenuController {
 		return json;		
 	}
 	//到重置密码页面
-	@RequestMapping(value="/forgetpwd.action",method=RequestMethod.POST)
+	@RequestMapping(value="/front/user/forgetpwd.action",method=RequestMethod.POST)
 	public String forgetYZ(String captcha,String email,HttpSession session){
 	int a=	us.captchaYZ( captcha,email);
 	session.setAttribute("email", email);
@@ -116,7 +116,7 @@ public class UserMenuController {
 		
 	}
 	//重置密码
-	@RequestMapping(value="/ret/resetpwd.action")
+	@RequestMapping(value="/front/user/resetpwd.action")
 public String resetpwd1(String email,String captcha,String password,String pwdAgain){
 		if(password.equals(pwdAgain)){
 	us.resetpwd(email,captcha,password);
@@ -126,27 +126,28 @@ public String resetpwd1(String email,String captcha,String password,String pwdAg
 		}
 	}
 //忘记密码,返回登录	
-@RequestMapping("/fanhui/index.action")
+@RequestMapping("/front/user/index.action")
 public String relogin(){
 	
 	return "/front/index"; 
 	
 	}
 //登录
-@RequestMapping("/front/user/login.action")
+@RequestMapping(value="/front/user/login.action",method=RequestMethod.POST)
 @ResponseBody
 public String login(String email,String password,HttpSession session){
 	System.out.println(password);
 	System.out.println(email);
 	
 	User user =	us.login(email,password);
+	System.out.println("sdfgjk--------"+user);
 	session.setAttribute("_front_user", user);
 	session.setAttribute("user", user);
 	LoginInf inf = new LoginInf();
 	ObjectMapper mapper = new ObjectMapper();
 	String json=null;
 	if (user!=null) {
-		
+		System.out.println(222);
 	try {
 		inf.setSuccess("登录成功!");
 		json = mapper.writeValueAsString(inf);
@@ -156,11 +157,18 @@ public String login(String email,String password,HttpSession session){
 	}
 	return json;	 	
 	}else{
+		inf.setMessage("用户名密码不匹配!");
+		try {
+			json = mapper.writeValueAsString(inf);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return json; 
 	}
 	}
 //跳入个人资料
-@RequestMapping("/front/user/index.action")
+@RequestMapping("/front/index.action")
 	public String userInfo(){
 
 		return "/front/user/index"; 
@@ -313,8 +321,8 @@ System.out.println(user1);
 					
 					
 					
-			//int courseid=	video.getCourse_id();
-					List<Video> videoList =us.findVideos(subjectId);
+			int courseid=	video.getCourse_id();
+					List<Video> videoList =us.findVideos(courseid);
 					for (Video video2 : videoList) {
 						System.out.println(video2);
 					}
@@ -326,7 +334,7 @@ System.out.println(user1);
 			
 				}
 				//统计播放次数
-				@RequestMapping("front/video/state.action")
+				@RequestMapping("/front/video/state.action")
 				public void count(Integer videoId){
 					us.updateCount(videoId);
 				

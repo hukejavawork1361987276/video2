@@ -42,7 +42,7 @@ public interface UserMapper {
 
 	Course findCourse(String videoId);
 
-	List<Video> findVideos(String subjectid);
+	List<Video> findVideos(int courseid);
 
 	void updateCount(Integer videoId);
 

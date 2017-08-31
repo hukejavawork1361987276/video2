@@ -58,7 +58,6 @@ $(function(){
 		}
 	});	
 	
-	
 	//注册请求的处理
 	$('#regForm').validate({
 		
@@ -69,7 +68,7 @@ $(function(){
 			//使用ajax的post方法提交注册信息
 			$.post('front/user/regist.action',$('#regForm').serialize(),function(result){
 				console.log(result);
-				if(result.success){alert("asdf");
+				if(result.success){
 					//注册成功,刷新页面
 					location.reload();
 				}else{

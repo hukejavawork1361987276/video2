@@ -10,7 +10,7 @@
 		<c:if test="${not empty _front_user}">
 			<div id="userBlock" style="float:right">
 				<a href="${pageContext.request.contextPath}/front/user/logout.action">退出</a>
-				<a href="${pageContext.request.contextPath}/front/user/index.action" id="account">${sessionScope._front_user.email }</a>
+				<a href="${pageContext.request.contextPath}/front/index.action" id="account">${sessionScope._front_user.email }</a>
 			</div>
 		</c:if>
 		<c:if test="${empty _front_user}">
