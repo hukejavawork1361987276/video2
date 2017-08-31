@@ -312,6 +312,7 @@ System.out.println(user1);
 					mm.addAttribute("course", inf);
 					
 					
+					
 			//int courseid=	video.getCourse_id();
 					List<Video> videoList =us.findVideos(subjectId);
 					for (Video video2 : videoList) {
